@@ -11,6 +11,7 @@ import {
   Input,
   Icon,
 } from "native-base";
+import { AntDesign } from "react-native-vector-icons";
 
 // TODO Rename this component to SignUp
 export default function RegistrationScreen() {
