@@ -1,6 +1,6 @@
 import React from "react";
 import AppNavigation from "./AppNavigation";
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, extendTheme } from "native-base";
 
 const theme = extendTheme({
   components: {
