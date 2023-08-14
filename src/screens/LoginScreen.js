@@ -57,7 +57,11 @@ export default function LoginScreen({ navigation }) {
         />
       </VStack>
 
-      <Button mt={5} rounded="3xl" _text={{ fontWeight: "bold" }}>
+      <Button
+        mt={5}
+        rounded="3xl"
+        _text={{ fontWeight: "bold", textTransform: "capitalize" }}
+      >
         Login
       </Button>
 
@@ -65,7 +69,9 @@ export default function LoginScreen({ navigation }) {
         <Text fontSize="lg">Don't have an account?</Text>
 
         <Pressable ml={3} onPress={() => navigation.navigate("SignUp")}>
-          <Text color="rose.600" fontSize="lg" bold underline>Sign Up</Text>
+          <Text color="rose.600" fontSize="lg" bold underline>
+            Sign In
+          </Text>
         </Pressable>
       </HStack>
     </Box>
