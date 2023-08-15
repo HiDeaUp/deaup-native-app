@@ -5,11 +5,12 @@ import { api } from "../helpers/axios.helper";
 import { Payload } from "../types/user.type";
 import * as SecureStore from "expo-secure-store";
 
+import { useToken, TOKEN_QUERY_KEY } from "../hooks/token.hook";
+
 export const FETCH_USER_QUERY_KEY = "fetchUser";
-const TOKEN_QUERY_KEY = "token";
 
 enum UserFormMessage {
-  SUCCESS_SIGNUP_MSG= "Successfully Signed Up! 😎",
+  SUCCESS_SIGNUP_MSG = "Successfully Signed Up! 😎",
   ERROR_MSG = "An error has occurred",
 }
 
