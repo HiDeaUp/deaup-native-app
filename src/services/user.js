@@ -26,7 +26,7 @@ export const useLogin = () => {
   );
 };
 
-export const useRegister = () => {
+export const useSignUp = () => {
   const toast = useToast();
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   VStack,
@@ -12,8 +12,19 @@ import {
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 
+import { useSignUp } from "../services/user";
+
 // TODO Rename this component to SignUp
 export default function RegistrationScreen() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const signUpMutation = useSignUp();
+
+  const onSignUp = () => {
+    const formData = { email, password };
+    signUpMutation.mutate(formData);
+  };
+
   return (
     <Box h="100%" p={5} justifyContent="center">
       {/* NativeBase's Vertical Stacks */}
@@ -42,6 +53,8 @@ export default function RegistrationScreen() {
           fontSize="lg"
           p={4}
           autoCapitalize="none"
+          value={email}
+          onChangeText={setEmail}
         />
 
         <Text fontSize="lg" mt={5} bold>
@@ -53,6 +66,8 @@ export default function RegistrationScreen() {
           rounded="xl"
           fontSize="lg"
           p={4}
+          value={password}
+          onChangeText={setPassword}
           autoCapitalize="none"
         />
       </VStack>
@@ -61,6 +76,9 @@ export default function RegistrationScreen() {
         mt={5}
         rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "capitalize" }}
+        onPress={onSignUp}
+        disabled={ !email || !password}
+        isLoading={signUpMutation.isLoading}
       >
         Sign Up
       </Button>
