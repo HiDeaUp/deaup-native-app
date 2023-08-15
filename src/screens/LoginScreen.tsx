@@ -12,7 +12,7 @@ import {
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 
-import { useLogin } from "../services/user";
+import { useLogin } from "../services/user.service";
 
 // TODO Rename this component to SignIn
 export default function LoginScreen({ navigation }) {

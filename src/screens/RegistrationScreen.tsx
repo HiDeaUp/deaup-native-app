@@ -11,7 +11,7 @@ import {
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 
-import { useSignUp } from "../services/user";
+import { useSignUp } from "../services/user.service";
 
 // TODO Rename this component to SignUp
 export default function RegistrationScreen() {

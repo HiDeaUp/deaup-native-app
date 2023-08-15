@@ -1,12 +1,8 @@
 import { useToast } from "native-base";
 import { useMutation } from "react-query";
 
-import { api } from "../helpers/axios.service";
-
-interface Payload {
-  email: string;
-  password: string;
-}
+import { api } from "../helpers/axios.helper";
+import { Payload } from "../types/user.type";
 
 export const useLogin = () => {
   const toast = useToast();
