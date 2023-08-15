@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Button,
-  Pressable,
   Input,
   Icon,
 } from "native-base";
@@ -77,7 +76,7 @@ export default function RegistrationScreen() {
         rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "capitalize" }}
         onPress={onSignUp}
-        isDisabled={ !email || !password}
+        isDisabled={!email || !password}
         isLoading={signUpMutation.isLoading}
       >
         Sign Up

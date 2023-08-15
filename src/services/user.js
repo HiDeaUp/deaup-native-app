@@ -10,17 +10,15 @@ export const useLogin = () => {
     ({ email, password }) => {
       const payload = { user: { email, password } };
 
-      return api.post("/users/sign_in.json", payload), payload;
+      return api.post("/users/sign_in.json", payload);
     },
     {
-      onSuccess: ({data}) => {
+      onSuccess: ({ data }) => {
         toast.show({
-          title: data
-            ? JSON.stringify(data)
-            : "An error has occurred",
+          title: data ? JSON.stringify(data) : "An error has occurred",
         });
       },
-      onError: ({message}) => {
+      onError: ({ message }) => {
         toast.show({ title: message });
       },
     }
@@ -34,17 +32,15 @@ export const useSignUp = () => {
     ({ email, password }) => {
       const payload = { user: { email, password } };
 
-      return api.post("/users.json", payload), payload;
+      return api.post("/users.json", payload);
     },
     {
-      onSuccess: ({data}) => {
+      onSuccess: ({ data }) => {
         toast.show({
-          title: data
-            ? JSON.stringify(data)
-            : "An error has occurred",
+          title: data ? JSON.stringify(data) : "An error has occurred",
         });
       },
-      onError: ({message}) => {
+      onError: ({ message }) => {
         toast.show({ title: message });
       },
     }
