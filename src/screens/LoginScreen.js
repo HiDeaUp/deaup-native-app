@@ -11,11 +11,11 @@ import {
   Icon,
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
+
 import { useLogin } from "../services/user";
 
 // TODO Rename this component to SignIn
 export default function LoginScreen({ navigation }) {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const loginMutation = useLogin();
@@ -66,9 +66,9 @@ export default function LoginScreen({ navigation }) {
           rounded="xl"
           fontSize="lg"
           p={4}
-          autoCapitalize="none"
           value={password}
           onChangeText={setPassword}
+          autoCapitalize="none"
         />
       </VStack>
 
