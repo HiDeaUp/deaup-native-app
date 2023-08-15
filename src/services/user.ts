@@ -3,11 +3,16 @@ import { useMutation } from "react-query";
 
 import { api } from "../helpers/axios.service";
 
+interface Payload {
+  email: string;
+  password: string;
+}
+
 export const useLogin = () => {
   const toast = useToast();
 
   return useMutation(
-    ({ email, password }) => {
+    ({ email, password }: Payload) => {
       const payload = { user: { email, password } };
 
       return api.post("/users/sign_in.json", payload);
@@ -29,7 +34,7 @@ export const useSignUp = () => {
   const toast = useToast();
 
   return useMutation(
-    ({ email, password }) => {
+    ({ email, password }: Payload) => {
       const payload = { user: { email, password } };
 
       return api.post("/users.json", payload);

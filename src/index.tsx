@@ -3,7 +3,7 @@ import AppNavigation from "./AppNavigation";
 import { NativeBaseProvider, extendTheme } from "native-base";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+const queryClient: QueryClient = new QueryClient();
 
 const theme = extendTheme({
   components: {
