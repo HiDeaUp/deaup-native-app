@@ -73,7 +73,7 @@ export default function SignUpScreen() {
       <Button
         mt={5}
         rounded="3xl"
-        _text={{ fontWeight: "bold", textTransform: "capitalize" }}
+        _text={{ fontWeight: "bold", textTransform: "uppercase" }}
         onPress={onSignUp}
         isDisabled={!email || !password}
         isLoading={signUpMutation.isLoading}

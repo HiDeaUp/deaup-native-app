@@ -74,7 +74,7 @@ export default function SignInScreen({ navigation }: any) {
       <Button
         mt={5}
         rounded="3xl"
-        _text={{ fontWeight: "bold", textTransform: "capitalize" }}
+        _text={{ fontWeight: "bold", textTransform: "uppercase" }}
         onPress={onSignIn}
         isDisabled={!email || !password}
         isLoading={loginMutation.isLoading}
