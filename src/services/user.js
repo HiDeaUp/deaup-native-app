@@ -6,21 +6,22 @@ import { api } from "../helpers/axios.service";
 export const useLogin = () => {
   const toast = useToast();
 
-  return (
-    useMutation((email, password) => {
+  return useMutation(
+    ({ email, password }) => {
       const payload = { user: { email, password } };
-      api.post("/users/sign_in.json", payload), payload;
-    }),
+
+      return api.post("/users/sign_in.json", payload), payload;
+    },
     {
-      onSuccess: (data) => {
+      onSuccess: ({data}) => {
         toast.show({
-          title: data?.data
-            ? JSON.stringify(data?.data)
+          title: data
+            ? JSON.stringify(data)
             : "An error has occurred",
         });
       },
-      onError: (error) => {
-        toast.show({ title: error.message });
+      onError: ({message}) => {
+        toast.show({ title: message });
       },
     }
   );
@@ -29,22 +30,22 @@ export const useLogin = () => {
 export const useSignUp = () => {
   const toast = useToast();
 
-  return (
-    useMutation((email, password) => {
+  return useMutation(
+    ({ email, password }) => {
       const payload = { user: { email, password } };
 
-      api.post("/users.json", payload), payload;
-    }),
+      return api.post("/users.json", payload), payload;
+    },
     {
-      onSuccess: (data) => {
+      onSuccess: ({data}) => {
         toast.show({
-          title: data?.data
-            ? JSON.stringify(data?.data)
+          title: data
+            ? JSON.stringify(data)
             : "An error has occurred",
         });
       },
-      onError: (error) => {
-        toast.show({ title: error.message });
+      onError: ({message}) => {
+        toast.show({ title: message });
       },
     }
   );
