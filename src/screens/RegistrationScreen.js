@@ -77,7 +77,7 @@ export default function RegistrationScreen() {
         rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "capitalize" }}
         onPress={onSignUp}
-        disabled={ !email || !password}
+        isDisabled={ !email || !password}
         isLoading={signUpMutation.isLoading}
       >
         Sign Up
