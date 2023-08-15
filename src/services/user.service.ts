@@ -1,5 +1,5 @@
 import { useToast } from "native-base";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
 import { api } from "../helpers/axios.helper";
 import { Payload } from "../types/user.type";
@@ -72,6 +72,22 @@ export const useSignUp = () => {
       onError: ({ message }) => {
         toast.show({ title: message });
       },
+    }
+  );
+};
+
+export const useFetchUser = () => {
+  const token = useToken();
+  const headers = { Authorization: token };
+
+  return (
+    useQuery([FETCH_USER_QUERY_KEY, token]),
+    () => api.post("/users.json", null, { headers }),
+    {
+      enabled: !!token, // cast to boolean
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      select: (userData: any) => userData?.data, // retrieve the data from the API
     }
   );
 };
