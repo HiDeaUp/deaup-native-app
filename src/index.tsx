@@ -20,8 +20,8 @@ const theme = extendTheme({
           borderWith: 0,
           _focus: {
             borderWith: 1,
-            borderColor: "rose.500",
-            bg: "white",
+            borderColor: "darkBlue.50",
+            bg: "white"
           },
         },
       },
