@@ -4,7 +4,7 @@ import { useMutation } from "react-query";
 import { api } from "../helpers/axios.helper";
 import { Payload } from "../types/user.type";
 
-export const useLogin = () => {
+export const useSignIn = () => {
   const toast = useToast();
 
   return useMutation(

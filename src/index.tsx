@@ -21,7 +21,7 @@ const theme = extendTheme({
           _focus: {
             borderWith: 1,
             borderColor: "darkBlue.50",
-            bg: "white"
+            bg: "warmGray.50"
           },
         },
       },

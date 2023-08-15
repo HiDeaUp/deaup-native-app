@@ -12,15 +12,14 @@ import {
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 
-import { useLogin } from "../services/user.service";
+import { useSignIn } from "../services/user.service";
 
-// TODO Rename this component to SignIn
-export default function LoginScreen({ navigation }) {
+export default function SignInScreen({ navigation }: any) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loginMutation = useLogin();
+  const loginMutation = useSignIn();
 
-  const onLogin = () => {
+  const onSignIn = () => {
     const formData = { email, password };
     loginMutation.mutate(formData);
   };
@@ -76,7 +75,7 @@ export default function LoginScreen({ navigation }) {
         mt={5}
         rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "capitalize" }}
-        onPress={onLogin}
+        onPress={onSignIn}
         isDisabled={!email || !password}
         isLoading={loginMutation.isLoading}
       >
