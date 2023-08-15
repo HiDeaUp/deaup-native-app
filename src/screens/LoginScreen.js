@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   VStack,
@@ -10,10 +10,21 @@ import {
   Input,
   Icon,
 } from "native-base";
-import { AntDesign } from "react-native-vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { useLogin } from "../services/user";
 
 // TODO Rename this component to SignIn
 export default function LoginScreen({ navigation }) {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const loginMutation = useLogin();
+
+  const onLogin = () => {
+    const formData = { email, password };
+    loginMutation.mutate(formData);
+  };
+
   return (
     <Box h="100%" p={5} justifyContent="center">
       {/* NativeBase's Vertical Stacks */}
@@ -42,6 +53,8 @@ export default function LoginScreen({ navigation }) {
           fontSize="lg"
           p={4}
           autoCapitalize="none"
+          value={email}
+          onChangeText={setEmail}
         />
 
         <Text fontSize="lg" mt={5} bold>
@@ -54,6 +67,8 @@ export default function LoginScreen({ navigation }) {
           fontSize="lg"
           p={4}
           autoCapitalize="none"
+          value={password}
+          onChangeText={setPassword}
         />
       </VStack>
 
@@ -61,6 +76,7 @@ export default function LoginScreen({ navigation }) {
         mt={5}
         rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "capitalize" }}
+        onPress={onLogin}
       >
         Login
       </Button>
