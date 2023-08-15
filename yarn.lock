@@ -5819,6 +5819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-secure-store@npm:^12.3.1":
+  version: 12.4.1
+  resolution: "expo-secure-store@npm:12.4.1"
+  peerDependencies:
+    expo: "*"
+  checksum: c6019fd325d75d473ce1d13de649e504e48aebea7da79454c9faaee1b083d5ac6bacd3c2bcb89d17ed222e7fdb6d41cd816be32b3918b39e6c533ddb9e5349b8
+  languageName: node
+  linkType: hard
+
 "expo-status-bar@npm:~1.6.0":
   version: 1.6.0
   resolution: "expo-status-bar@npm:1.6.0"
@@ -6144,6 +6153,7 @@ __metadata:
     "@types/react-test-renderer": ^18.0.0
     axios: ^1.4.0
     expo: ~49.0.7
+    expo-secure-store: ^12.3.1
     expo-status-bar: ~1.6.0
     native-base: ^3.4.28
     react: 18.2.0

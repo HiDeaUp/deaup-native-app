@@ -1,11 +1,16 @@
 import { useToast } from "native-base";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 
 import { api } from "../helpers/axios.helper";
 import { Payload } from "../types/user.type";
+import * as SecureStore from "expo-secure-store";
+
+export const FETCH_USER_QUERY_KEY = "fetchUser";
+const TOKEN_QUERY_KEY = "token";
 
 export const useSignIn = () => {
   const toast = useToast();
+  const queryClient = useQueryClient();
 
   return useMutation(
     ({ email, password }: Payload) => {
@@ -14,7 +19,14 @@ export const useSignIn = () => {
       return api.post("/users/sign_in.json", payload);
     },
     {
-      onSuccess: ({ data }) => {
+      onSuccess: async ({ data }) => {
+        const token = data.headers.authorization;
+        await SecureStore.setItemAsync(TOKEN_QUERY_KEY, token);
+
+        // invalidate the following token queries
+        queryClient.invalidateQueries([TOKEN_QUERY_KEY]);
+        queryClient.invalidateQueries([FETCH_USER_QUERY_KEY]);
+
         toast.show({
           title: data ? JSON.stringify(data) : "An error has occurred",
         });
@@ -28,6 +40,7 @@ export const useSignIn = () => {
 
 export const useSignUp = () => {
   const toast = useToast();
+  const queryClient = useQueryClient();
 
   return useMutation(
     ({ email, password }: Payload) => {
@@ -36,7 +49,15 @@ export const useSignUp = () => {
       return api.post("/users.json", payload);
     },
     {
-      onSuccess: ({ data }) => {
+      onSuccess: async ({ data }) => {
+        const token = data.headers.authorization;
+        await SecureStore.setItemAsync(TOKEN_QUERY_KEY, token);
+
+        
+        // invalidate the following token queries
+        queryClient.invalidateQueries([TOKEN_QUERY_KEY]);
+        queryClient.invalidateQueries([FETCH_USER_QUERY_KEY]);
+
         toast.show({
           title: data ? JSON.stringify(data) : "An error has occurred",
         });
