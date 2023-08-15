@@ -27,5 +27,10 @@
     "@babel/core": "^7.20.0",
     "typescript": "^5.1.6"
   },
-  "private": true
+  "private": true,
+  "volta": {
+    "node": "18.17.1",
+    "yarn": "3.6.1"
+  },
+  "packageManager": "yarn@3.6.1"
 }
