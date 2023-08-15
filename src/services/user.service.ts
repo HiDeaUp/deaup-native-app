@@ -8,6 +8,11 @@ import * as SecureStore from "expo-secure-store";
 export const FETCH_USER_QUERY_KEY = "fetchUser";
 const TOKEN_QUERY_KEY = "token";
 
+enum UserFormMessage {
+  SUCCESS_SIGNUP_MSG= "Successfully Signed Up! 😎",
+  ERROR_MSG = "An error has occurred",
+}
+
 export const useSignIn = () => {
   const toast = useToast();
   const queryClient = useQueryClient();
@@ -28,7 +33,7 @@ export const useSignIn = () => {
         queryClient.invalidateQueries([FETCH_USER_QUERY_KEY]);
 
         toast.show({
-          title: data ? JSON.stringify(data) : "An error has occurred",
+          title: data ? JSON.stringify(data) : UserFormMessage.ERROR_MSG,
         });
       },
       onError: ({ message }) => {
@@ -58,7 +63,9 @@ export const useSignUp = () => {
         queryClient.invalidateQueries([FETCH_USER_QUERY_KEY]);
 
         toast.show({
-          title: data ? "Successfully Signed Up! 😎" : "An error has occurred",
+          title: data
+            ? UserFormMessage.SUCCESS_SIGNUP_MSG
+            : UserFormMessage.ERROR_MSG,
         });
       },
       onError: ({ message }) => {
