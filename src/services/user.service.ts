@@ -53,13 +53,12 @@ export const useSignUp = () => {
         const token = data.headers.authorization;
         await SecureStore.setItemAsync(TOKEN_QUERY_KEY, token);
 
-        
         // invalidate the following token queries
         queryClient.invalidateQueries([TOKEN_QUERY_KEY]);
         queryClient.invalidateQueries([FETCH_USER_QUERY_KEY]);
 
         toast.show({
-          title: data ? JSON.stringify(data) : "An error has occurred",
+          title: data ? "Successfully Signed Up! 😎" : "An error has occurred",
         });
       },
       onError: ({ message }) => {
