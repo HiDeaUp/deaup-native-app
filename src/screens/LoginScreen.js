@@ -77,6 +77,8 @@ export default function LoginScreen({ navigation }) {
         rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "capitalize" }}
         onPress={onLogin}
+        disabled={!email || !password}
+        isLoading={loginMutation.isLoading}
       >
         Login
       </Button>
