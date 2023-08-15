@@ -18,7 +18,11 @@ const theme = extendTheme({
           bg: "white",
           p: "3",
           borderWith: 0,
-          _focus: { borderWith: 1, borderColor: "rose.400" },
+          _focus: {
+            borderWith: 1,
+            borderColor: "rose.500",
+            bg: "white",
+          },
         },
       },
     },
