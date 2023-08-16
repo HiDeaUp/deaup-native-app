@@ -15,7 +15,7 @@ export const ProfileScreen = () => {
 
   return (
     <Box h="100%" p={5}>
-      <Avatar bg="black" alignSelf="center" size="xl" mb={5}>
+      <Avatar bg="black" alignSelf="center" color="amber.500" size="xl" mb={5}>
         {email.slice(0, 2).toUpperCase()}
       </Avatar>
 
