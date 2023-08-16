@@ -1,5 +1,10 @@
 import { useToast } from "native-base";
-import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
 
 import { api } from "../helpers/axios.helper";
 import { Payload } from "../types/user.type";
@@ -10,37 +15,11 @@ import { useToken, TOKEN_QUERY_KEY } from "../hooks/token.hook";
 export const FETCH_USER_QUERY_KEY = "fetchUser";
 
 enum UserFormMessage {
-  SUCCESS_SIGNUP_MSG = "Successfully Signed Up! 😎",
-  SUCCESS_SIGNIN_MSG = "Welcome back! 😊",
+  SUCCESS_SIGN_UP_MSG = "Successfully Signed Up! 😎",
+  SUCCESS_SIGN_IN_MSG = "Welcome back! 😊",
+  SUCCESS_SIGN_OUT_MSG = "See you soon! 👋",
   ERROR_MSG = "An error has occurred",
 }
-
-export const useSignIn = () => {
-  const toast = useToast();
-  const queryClient = useQueryClient();
-
-  return useMutation(
-    ({ email, password }: Payload) => {
-      const payload = { user: { email, password } };
-
-      return api.post("/users/sign_in.json", payload);
-    },
-    {
-      onSuccess: async (data) => {
-        await _persistHeadersToken(data, queryClient);
-
-        toast.show({
-          title: data
-            ? UserFormMessage.SUCCESS_SIGNIN_MSG
-            : UserFormMessage.ERROR_MSG,
-        });
-      },
-      onError: ({ message }) => {
-        toast.show({ title: message });
-      },
-    }
-  );
-};
 
 export const useSignUp = () => {
   const toast = useToast();
@@ -54,11 +33,74 @@ export const useSignUp = () => {
     },
     {
       onSuccess: async (data) => {
-        await _persistHeadersToken(data, queryClient);
+        const {
+          headers: { authorization: token },
+        } = data;
+
+        await _persistTokenValue(queryClient, token);
 
         toast.show({
           title: data
-            ? UserFormMessage.SUCCESS_SIGNUP_MSG
+            ? UserFormMessage.SUCCESS_SIGN_UP_MSG
+            : UserFormMessage.ERROR_MSG,
+        });
+      },
+      onError: ({ message }) => {
+        toast.show({ title: message });
+      },
+    }
+  );
+};
+
+export const useSignIn = () => {
+  const toast = useToast();
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ email, password }: Payload) => {
+      const payload = { user: { email, password } };
+
+      return api.post("/users/sign_in.json", payload);
+    },
+    {
+      onSuccess: async (data) => {
+        const {
+          headers: { authorization: token },
+        } = data;
+
+        await _persistTokenValue(queryClient, token);
+
+        toast.show({
+          title: data
+            ? UserFormMessage.SUCCESS_SIGN_IN_MSG
+            : UserFormMessage.ERROR_MSG,
+        });
+      },
+      onError: ({ message }) => {
+        toast.show({ title: message });
+      },
+    }
+  );
+};
+
+export const useSignOut = () => {
+  const toast = useToast();
+  const token = useToken();
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    () => {
+      const headers = { authorization: token };
+
+      return api.delete("/users/sign_out.json", null, { headers });
+    },
+    {
+      onSuccess: async (data) => {
+        await _persistTokenValue(queryClient, "");
+
+        toast.show({
+          title: data
+            ? UserFormMessage.SUCCESS_SIGN_OUT_MSG
             : UserFormMessage.ERROR_MSG,
         });
       },
@@ -85,12 +127,11 @@ export const useFetchUser = () => {
   );
 };
 
-const _persistHeadersToken = async (data: any, queryClient: QueryClient): Promise<void> => {
-  const {
-    headers: { authorization: token },
-  } = data;
-
-  await SecureStore.setItemAsync(TOKEN_QUERY_KEY, token);
+const _persistTokenValue = async (
+  queryClient: QueryClient,
+  value: string
+): Promise<void> => {
+  await SecureStore.setItemAsync(TOKEN_QUERY_KEY, value);
 
   // invalidate the following token queries
   queryClient.invalidateQueries([TOKEN_QUERY_KEY]);
