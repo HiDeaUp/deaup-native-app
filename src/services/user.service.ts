@@ -75,7 +75,7 @@ export const useFetchUser = () => {
 
   return useQuery(
     [FETCH_USER_QUERY_KEY, token],
-    () => api.post("/users.json", null, { headers }),
+    () => api.post("/users/sign_in.json", null, { headers }),
     {
       enabled: !!token, // cast to boolean
       staleTime: Infinity,
