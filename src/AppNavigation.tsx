@@ -30,7 +30,7 @@ export function AppNavigation() {
           <Stack.Screen
             name="SignUp"
             component={SignUpScreen}
-            options={{ headerTitle: "" }}
+            options={{ headerTitle: "Sign Up" }}
           />
         </Stack.Navigator>
       )}
