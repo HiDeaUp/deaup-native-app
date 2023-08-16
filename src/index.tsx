@@ -1,5 +1,5 @@
 import React from "react";
-import AppNavigation from "./AppNavigation";
+import { AppNavigation } from "./AppNavigation";
 import { NativeBaseProvider, extendTheme } from "native-base";
 import { QueryClient, QueryClientProvider } from "react-query";
 

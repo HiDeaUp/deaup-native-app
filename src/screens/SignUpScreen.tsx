@@ -13,7 +13,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { useSignUp } from "../services/user.service";
 
-export default function SignUpScreen() {
+export function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const signUpMutation = useSignUp();

@@ -14,7 +14,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { useSignIn } from "../services/user.service";
 
-export default function SignInScreen({ navigation }: any) {
+export function SignInScreen({ navigation }: any) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const loginMutation = useSignIn();
