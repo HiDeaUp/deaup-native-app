@@ -6,7 +6,7 @@ export const api = (() => axios.create({ baseURL }))();
 
 api.interceptors.response.use(
   (response) => response,
-  (error, request) => {
+  (error) => {
     error.message =
       error.response?.data?.error ||
       (error.response?.data?.errors

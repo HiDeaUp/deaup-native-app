@@ -17,11 +17,12 @@ import { useSignIn } from "../services/user.service";
 export function SignInScreen({ navigation }: any) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loginMutation = useSignIn();
+
+  const signInMutation = useSignIn();
 
   const onSignIn = () => {
     const formData = { email, password };
-    loginMutation.mutate(formData);
+    signInMutation.mutate(formData);
   };
 
   return (
@@ -77,9 +78,9 @@ export function SignInScreen({ navigation }: any) {
         _text={{ fontWeight: "bold", textTransform: "uppercase" }}
         onPress={onSignIn}
         isDisabled={!email || !password}
-        isLoading={loginMutation.isLoading}
+        isLoading={signInMutation.isLoading}
       >
-        Login
+        Sign In
       </Button>
 
       <HStack justifyContent="center" mt={5}>
@@ -87,7 +88,7 @@ export function SignInScreen({ navigation }: any) {
 
         <Pressable ml={3} onPress={() => navigation.navigate("SignUp")}>
           <Text color="rose.600" fontSize="lg" bold underline>
-            Sign In
+            Sign Up Today
           </Text>
         </Pressable>
       </HStack>

@@ -16,6 +16,7 @@ import { useSignUp } from "../services/user.service";
 export function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const signUpMutation = useSignUp();
 
   const onSignUp = () => {
