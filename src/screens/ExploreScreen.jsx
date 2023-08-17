@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box, Text, FlatList } from "native-base";
-
 import { useQueryClient } from "react-query";
+
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house";
+import { HouseCard } from "../components/HouseCard";
 
 export const ExploreScreen = () => {
   const queryClient = useQueryClient();
@@ -19,7 +20,8 @@ export const ExploreScreen = () => {
         keyExtractor={(item) => item.id}
         px={5}
         flexGrow={1}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        {/* below, show item to the HouseCard iamge component */}
+        renderItem={({ item }) => <HouseCard item={item} />}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_HOUSES_QUERY_KEY])}
       />
