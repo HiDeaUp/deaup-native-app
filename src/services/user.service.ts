@@ -6,7 +6,7 @@ import {
   useQueryClient,
 } from "react-query";
 
-import { api } from "../helpers/axios.helper";
+import { api } from "../helpers/api.helper";
 import { Payload } from "../types/user.type";
 import * as SecureStore from "expo-secure-store";
 
