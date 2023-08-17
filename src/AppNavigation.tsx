@@ -39,6 +39,7 @@ const HomeTabs = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
+          headerTitle: "My Profile",
           tabBarIcon: (props) => <Icon as={AntDesign} name="user" {...props} />,
         }}
       />
@@ -64,13 +65,13 @@ export function AppNavigation() {
           <Stack.Screen
             name="SignIn"
             component={SignInScreen}
-            options={{ headerShown: false }}
+            options={{ headerTitle: "Sign In" }}
           />
 
           <Stack.Screen
             name="SignUp"
             component={SignUpScreen}
-            options={{ headerTitle: "Sign Up" }}
+            options={{ headerTitle: "Sign Up Today" }}
           />
         </Stack.Navigator>
       )}
