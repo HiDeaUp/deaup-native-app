@@ -12,11 +12,12 @@ export const ProfileScreen = () => {
   };
 
   const { email } = data;
+  const emailInitial = email.slice(0, 2).toUpperCase()
 
   return (
     <Box h="100%" p={5}>
       <Avatar bg="black" alignSelf="center" color="amber.500" size="xl" mb={5}>
-        {email.slice(0, 2).toUpperCase()}
+        {emailInitial}
       </Avatar>
 
       <Heading size="xl" mb={5} alignSelf="center">
