@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, FlatList } from "native-base";
+import { Box, Text, FlatList } from "native-base";
 
 import { useQueryClient } from "react-query";
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house";
@@ -11,6 +11,7 @@ export const ExploreScreen = () => {
   const [search, setSearch] = useState("");
 
   const { data, isLoading, isFetching } = useFetchHouses({ search, category });
+
   return (
     <Box h="100%" p={5} bg="white">
       <FlatList
