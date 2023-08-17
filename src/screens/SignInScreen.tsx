@@ -14,7 +14,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { useSignIn } from "../services/user.service";
 
-export function SignInScreen({ navigation }: any) {
+export const SignInScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -94,4 +94,4 @@ export function SignInScreen({ navigation }: any) {
       </HStack>
     </Box>
   );
-}
+};

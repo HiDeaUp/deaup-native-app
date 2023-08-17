@@ -47,7 +47,7 @@ const HomeTabs = () => {
   );
 };
 
-export function AppNavigation() {
+export const AppNavigation = (): React.ReactElement => {
   const { data: user } = useFetchUser();
 
   return (
@@ -77,4 +77,4 @@ export function AppNavigation() {
       )}
     </NavigationContainer>
   );
-}
+};
