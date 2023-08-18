@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, Pressable, Image, AspectRatio } from "native-base";
 
+import { House } from "../types/house.type";
+
 interface HouseCardProps {
-  item: any;
+  item: House;
   onPress: () => void;
 }
 

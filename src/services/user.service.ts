@@ -7,7 +7,7 @@ import {
 } from "react-query";
 
 import { api } from "../helpers/api.helper";
-import { Payload } from "../types/user.type";
+import { SignUpUser, SignInUser } from "../types/user.type";
 import * as SecureStore from "expo-secure-store";
 
 import { useToken, TOKEN_QUERY_KEY } from "../hooks/token.hook";
@@ -26,7 +26,7 @@ export const useSignUp = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    ({ email, password }: Payload) => {
+    ({ email, password }: SignUpUser) => {
       const payload = { user: { email, password } };
 
       return api.post("/users.json", payload);
@@ -57,7 +57,7 @@ export const useSignIn = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    ({ email, password }: Payload) => {
+    ({ email, password }: SignInUser) => {
       const payload = { user: { email, password } };
 
       return api.post("/users/sign_in.json", payload);
