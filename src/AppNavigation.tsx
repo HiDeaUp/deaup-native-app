@@ -23,6 +23,7 @@ const HomeTabs = () => {
         name="Explore"
         component={ExploreScreen}
         options={{
+          headerTitle: "Explore the World 🌎",
           tabBarIcon: (props) => (
             <Icon as={AntDesign} name="search1" {...props} />
           ),
