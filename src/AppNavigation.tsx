@@ -10,6 +10,7 @@ import { SignUpScreen } from "./screens/SignUpScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { ListingScreen } from "./screens/ListingScreen";
 import { ExploreScreen } from "./screens/ExploreScreen";
+import { ListingDetailsScreen } from "./screens/ListingDetailsScreen";
 
 import { useFetchUser } from "./services/user.service";
 
@@ -60,6 +61,11 @@ export const AppNavigation = (): React.ReactElement => {
             component={HomeTabs}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="Details"
+            component={ListingDetailsScreen}
+            options={{ headerTitle: "House Details" }}
+          />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
@@ -68,7 +74,6 @@ export const AppNavigation = (): React.ReactElement => {
             component={SignInScreen}
             options={{ headerTitle: "Sign In" }}
           />
-
           <Stack.Screen
             name="SignUp"
             component={SignUpScreen}
