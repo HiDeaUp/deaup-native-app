@@ -20,7 +20,7 @@ export const ExploreScreen = () => {
         keyExtractor={(item) => item.id}
         px={5}
         flexGrow={1}
-        {/* below, show item to the HouseCard iamge component */}
+        // below, show item to the HouseCard image component
         renderItem={({ item }) => <HouseCard item={item} />}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_HOUSES_QUERY_KEY])}
