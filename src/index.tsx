@@ -11,19 +11,25 @@ const theme = extendTheme({
       defaultProps: {
         colorScheme: "rose",
         size: "lg",
+        rounded: "3xl",
       },
-      Input: {
-        defaultProps: {
-          size: "lg",
-          bg: "white",
-          p: "3",
-          borderWith: 0,
-          _focus: {
-            borderWith: 1,
-            borderColor: "darkBlue.50",
-            bg: "warmGray.50"
-          },
-        },
+    },
+    Input: {
+      defaultProps: {
+        size: "lg",
+        bg: "white",
+        p: "3",
+        rounded: "xl",
+        fontSize: "lg",
+        borderWidth: 0,
+        _focus: { borderWidth: 1, borderColor: "rose.400", bg: "white" },
+      },
+    },
+    Select: {
+      defaultProps: {
+        rounded: "lg",
+        size: "xl",
+        bg: "white",
       },
     },
   },
