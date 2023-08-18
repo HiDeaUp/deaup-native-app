@@ -5,8 +5,9 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house";
 import { HouseCard } from "../components/HouseCard";
+import { House } from "../types/house.type";
 
-export const ExploreScreen = () => {
+export const ExploreScreen = ({ navigation }: any) => {
   const queryClient = useQueryClient();
 
   const [category, setCategory] = useState("");
@@ -49,11 +50,16 @@ export const ExploreScreen = () => {
       </VStack>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item: House): any => item.id}
         px={5}
         flexGrow={1}
         // below, show item to the HouseCard image component
-        renderItem={({ item }) => <HouseCard item={item} />}
+        renderItem={({ item }: any) => (
+          <HouseCard
+            item={item}
+            onPress={() => navigation.navigate("Details", { house: item })}
+          />
+        )}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_HOUSES_QUERY_KEY])}
       />
