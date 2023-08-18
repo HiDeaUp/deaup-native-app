@@ -12,7 +12,7 @@ export const ProfileScreen = () => {
   };
 
   const { email } = data;
-  const emailInitial = email.slice(0, 2).toUpperCase()
+  const emailInitial = email.slice(0, 2).toUpperCase();
 
   return (
     <Box h="100%" p={5}>
