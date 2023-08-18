@@ -14,6 +14,7 @@ import {
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 import { House } from "../types/house.type";
+import { formatPrice } from "../helpers/price.helper";
 
 interface HouseCardProps {
   item: House;
@@ -48,7 +49,7 @@ export const HouseCard = ({ item, onPress }: HouseCardProps) => {
               {item.title}
             </Heading>
             <Text fontSize="lg" color="rose.500" bold>
-              {item.price}
+              {formatPrice(item.price)}
             </Text>
           </Flex>
           <HStack alignItems="center" space={2}>
