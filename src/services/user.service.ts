@@ -92,7 +92,7 @@ export const useSignOut = () => {
     () => {
       const headers = { authorization: token };
 
-      return api.delete("/users/sign_out.json", null, { headers });
+      return api.delete("/users/sign_out.json", { headers });
     },
     {
       onSuccess: async (data) => {
