@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  VStack,
-  HStack,
-  Heading,
-  Text,
-  Button,
-  Input,
-  Icon,
-} from "native-base";
+import { Box, VStack, Heading, Text, Button, Input, Icon } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 
 import { useSignUp } from "../services/user.service";
@@ -48,8 +39,6 @@ export const SignUpScreen = () => {
 
         <Input
           type="text"
-          rounded="xl"
-          fontSize="lg"
           p={4}
           autoCapitalize="none"
           value={email}
@@ -62,8 +51,6 @@ export const SignUpScreen = () => {
 
         <Input
           type="password"
-          rounded="xl"
-          fontSize="lg"
           p={4}
           value={password}
           onChangeText={setPassword}
@@ -73,7 +60,6 @@ export const SignUpScreen = () => {
 
       <Button
         mt={5}
-        rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "uppercase" }}
         onPress={onSignUp}
         isDisabled={!email || !password}

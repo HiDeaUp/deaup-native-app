@@ -49,8 +49,6 @@ export const SignInScreen = ({ navigation }: any) => {
 
         <Input
           type="text"
-          rounded="xl"
-          fontSize="lg"
           p={4}
           autoCapitalize="none"
           value={email}
@@ -63,8 +61,6 @@ export const SignInScreen = ({ navigation }: any) => {
 
         <Input
           type="password"
-          rounded="xl"
-          fontSize="lg"
           p={4}
           value={password}
           onChangeText={setPassword}
@@ -74,7 +70,6 @@ export const SignInScreen = ({ navigation }: any) => {
 
       <Button
         mt={5}
-        rounded="3xl"
         _text={{ fontWeight: "bold", textTransform: "uppercase" }}
         onPress={onSignIn}
         isDisabled={!email || !password}

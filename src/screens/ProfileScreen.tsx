@@ -25,12 +25,7 @@ export const ProfileScreen = () => {
       </Heading>
 
       <Box position="absolute" bottom={10} left={0} right={0}>
-        <Button
-          m={5}
-          rounded="3xl"
-          _text={{ fontWeight: "bold" }}
-          onPress={onSignOut}
-        >
+        <Button m={5} _text={{ fontWeight: "bold" }} onPress={onSignOut}>
           Sign Out
         </Button>
       </Box>
