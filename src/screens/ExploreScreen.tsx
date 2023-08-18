@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, FlatList, VStack, Input, Select, Icon } from "native-base";
 import { useQueryClient } from "react-query";
 import { AntDesign } from "@expo/vector-icons";
+import { ListRenderItemInfo } from "react-native";
 
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house";
 import { HouseCard } from "../components/HouseCard";
@@ -54,7 +55,9 @@ export const ExploreScreen = ({ navigation }: any) => {
         px={5}
         flexGrow={1}
         // below, show item to the HouseCard image component
-        renderItem={({ item }: any) => (
+        renderItem={({
+          item,
+        }: ListRenderItemInfo<House>): React.JSX.Element => (
           <HouseCard
             item={item}
             onPress={() => navigation.navigate("Details", { house: item })}
