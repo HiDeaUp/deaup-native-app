@@ -15,6 +15,6 @@ export const stringWidth = ({
   const trimMarker = ellipsis ?? "...";
 
   return value.length > maxLength
-    ? value.substring(0, maxLength - 3) + trimMarker
+    ? value.substring(0, maxLength - trimMarker.length) + trimMarker
     : value;
 };
