@@ -1,0 +1,9 @@
+{
+    "semi": false, // Specify if you want to print semicolons at the end of statements
+    "singleQuote": false, // If you want to use single quotes
+    "arrowParens": "always", // Include parenthesis around a sole arrow function parameter
+    "trailingComma": "es5",
+    "bracketSameLine": true,
+    "bracketSpacing": false
+}
+

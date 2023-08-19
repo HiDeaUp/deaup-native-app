@@ -7,7 +7,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "prettier:check": "prettier --ignore-path .prettierignore --check '**/*.{js,jsx,json,md}'",
+    "prettier:fix": "prettier --ignore-path .prettierignore --write '**/*.{js,jsx,json,md}'"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.8",
@@ -31,6 +33,7 @@
     "@types/jest": "^29.5.3",
     "@types/react": "^18.2.20",
     "@types/react-test-renderer": "^18.0.0",
+    "prettier": "^2.8.8",
     "typescript": "^5.1.6"
   },
   "private": true,
