@@ -6194,6 +6194,7 @@ __metadata:
     expo-secure-store: ^12.3.1
     expo-status-bar: ~1.6.0
     native-base: ^3.4.28
+    prettier: ^3.0.2
     react: 18.2.0
     react-native: 0.72.3
     react-native-safe-area-context: 4.6.3
@@ -9038,6 +9039,15 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 1cdd0c298849df6cd65f7e646a3ba36870a37b65f55fd59d1a165539c263e9b4872a402bf4ed1ca1bc31f58b68b2835545e33ea1a23b161a1f8aa6d5ded81e78
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "prettier@npm:3.0.2"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 118b59ddb6c80abe2315ab6d0f4dd1b253be5cfdb20622fa5b65bb1573dcd362e6dd3dcf2711dd3ebfe64aecf7bdc75de8a69dc2422dcd35bdde7610586b677a
   languageName: node
   linkType: hard
 
