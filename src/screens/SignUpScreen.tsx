@@ -17,7 +17,7 @@ export const SignUpScreen = () => {
 
   return (
     <Box h="100%" p={5} justifyContent="center">
-      <AppLogo name="SecretState" />
+      <AppLogo name="Secret Estate" />
 
       <VStack space={2} mb={10}>
         <Heading size="xl">Sign Up</Heading>
