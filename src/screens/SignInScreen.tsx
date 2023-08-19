@@ -8,11 +8,10 @@ import {
   Button,
   Pressable,
   Input,
-  Icon,
 } from "native-base";
-import { AntDesign } from "@expo/vector-icons";
 
 import { useSignIn } from "../services/user.service";
+import { AppIcon } from "../components/AppIcon";
 
 export const SignInScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
@@ -29,15 +28,10 @@ export const SignInScreen = ({ navigation }: any) => {
     <Box h="100%" p={5} justifyContent="center">
       {/* NativeBase's Vertical Stacks */}
       <VStack space={2} mb={20} alignSelf="center">
-        <Icon
-          as={AntDesign}
-          name="home"
-          size={12}
-          color="rose.600"
-          alignSelf="center"
-        />
+        <AppIcon />
+
         <Heading size="3xl" mr={2} color="rose.600">
-          Real Estate
+          Secret Estate
         </Heading>
       </VStack>
 
