@@ -10,7 +10,10 @@ import {
   HStack,
   Heading,
   Divider,
+  Button,
+  Icon
 } from "native-base";
+import { Entypo } from "@expo/vector-icons";
 
 import { House } from "../types/house.type";
 import { formatPrice } from "../helpers/price.helper";
@@ -26,7 +29,7 @@ export const ListingDetailsScreen = ({
   route,
   navigation,
 }: ListingDetailsScreenProps) => {
-  const { image, category, title, price, bathroom, bedroom, car } = route.params
+  const { image, category, title, price, bathroom, bedroom, car, address, description } = route.params
     .details as House;
 
   return (
@@ -101,8 +104,28 @@ export const ListingDetailsScreen = ({
               </HStack>
             </VStack>
           </HStack>
+
+          <Heading fontSize="lg" mt={10}>
+            Location
+          </Heading>
+          <HStack alignItems="center" space={2}>
+            <Icon as={Entypo} name="address" color="black" size={5} />
+            <Text fontSize="md" color="light.600">{address}</Text>
+          </HStack>
+
+          <Heading fontSize="lg" mt={10}>
+            Description
+          </Heading>
+
+          <Text mt={2} fontSize="md" color="light.600">
+            {description}
+          </Text>
         </VStack>
       </ScrollView>
+
+      <Button m={5} _text={{ fontWeight: "bold", textTransform: "uppercase" }}>
+        Get It Touch
+      </Button>
     </Flex>
-  );
+);
 };
