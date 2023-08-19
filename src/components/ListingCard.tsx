@@ -16,12 +16,12 @@ import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import { House } from "../types/house.type";
 import { formatPrice } from "../helpers/price.helper";
 
-interface HouseCardProps {
+interface ListingCardProps {
   item: House;
   onPress: () => void;
 }
 
-export const HouseCard = ({ item, onPress }: HouseCardProps) => {
+export const ListingCard = ({ item, onPress }: ListingCardProps) => {
   return (
     <Pressable onPress={onPress} shadow={5}>
       <Box bg="white" mt={5} rounded="xl" overflow="hidden">
@@ -31,7 +31,7 @@ export const HouseCard = ({ item, onPress }: HouseCardProps) => {
 
         <Box
           rounded="2xl"
-          bg="rose.500"
+          bg="rose.600:alpha.70"
           px={3}
           py={1}
           position="absolute"

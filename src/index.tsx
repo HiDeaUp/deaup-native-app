@@ -32,6 +32,12 @@ const theme = extendTheme({
         bg: "white",
       },
     },
+    IconButton: {
+      defaultProps: {
+        rounded: "md",
+        colorScheme: "rose.600",
+      },
+    },
   },
 });
 

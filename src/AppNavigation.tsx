@@ -64,7 +64,7 @@ export const AppNavigation = (): React.ReactElement => {
           <Stack.Screen
             name="Details"
             component={ListingDetailsScreen}
-            options={{ headerTitle: "House Details" }}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       ) : (

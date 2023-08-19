@@ -5,7 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { ListRenderItemInfo } from "react-native";
 
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house";
-import { HouseCard } from "../components/HouseCard";
+import { ListingCard } from "../components/ListingCard";
 import { House } from "../types/house.type";
 
 export const ExploreScreen = ({ navigation }: any) => {
@@ -54,11 +54,11 @@ export const ExploreScreen = ({ navigation }: any) => {
         keyExtractor={(item: House): any => item.id}
         px={5}
         flexGrow={1}
-        // below, show item to the HouseCard image component
+        // below, show item to the ListingCard image component
         renderItem={({
           item,
         }: ListRenderItemInfo<House>): React.JSX.Element => (
-          <HouseCard
+          <ListingCard
             item={item}
             onPress={() => navigation.navigate("Details", { house: item })}
           />
