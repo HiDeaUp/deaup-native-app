@@ -15,6 +15,7 @@ import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 import { House } from "../types/house.type";
 import { formatPrice } from "../helpers/price.helper";
+import { stringWidth } from "../helpers/text.helper";
 
 interface ListingCardProps {
   item: House;
@@ -46,7 +47,7 @@ export const ListingCard = ({ item, onPress }: ListingCardProps) => {
         <VStack p={3} space={1}>
           <Flex flexDirection="row" justifyContent="space-between">
             <Heading size="md" color="black" flexShrink={1}>
-              {item.title}
+              {stringWidth({ value: item.title, maxShownLength: 28 })}
             </Heading>
             <Text fontSize="lg" color="rose.500" bold>
               {formatPrice(item.price)}
