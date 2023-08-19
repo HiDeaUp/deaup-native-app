@@ -27,7 +27,7 @@ export const ListingDetailsScreen = ({
   navigation,
 }: ListingDetailsScreenProps) => {
   const { image, category, title, price, bathroom, bedroom, car } = route.params
-    .house as House;
+    .details as House;
 
   return (
     <Flex height="100%" bg="white">

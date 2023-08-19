@@ -60,7 +60,7 @@ export const ExploreScreen = ({ navigation }: any) => {
         }: ListRenderItemInfo<House>): React.JSX.Element => (
           <ListingCard
             item={item}
-            onPress={() => navigation.navigate("Details", { house: item })}
+            onPress={() => navigation.navigate("Details", { details: item })}
           />
         )}
         refreshing={isLoading || isFetching}
