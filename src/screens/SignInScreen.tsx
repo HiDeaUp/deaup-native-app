@@ -26,7 +26,7 @@ export const SignInScreen = ({ navigation }: any) => {
 
   return (
     <Box h="100%" p={5} justifyContent="center">
-      <AppLogo />
+      <AppLogo name="SecretState" />
 
       <VStack space={2} mb={10}>
         <Heading size="xl">Sign In</Heading>
