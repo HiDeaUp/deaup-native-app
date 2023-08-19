@@ -1,8 +1,21 @@
 import React from "react";
-import { Box, Flex, Text, AspectRatio, Image } from "native-base";
+import {
+  Box,
+  Flex,
+  Text,
+  AspectRatio,
+  Image,
+  ScrollView,
+  VStack,
+  HStack,
+  Heading,
+  Divider,
+} from "native-base";
 
 import { House } from "../types/house.type";
+import { formatPrice } from "../helpers/price.helper";
 import { BackChevronIcon } from "../components/BackChevronIcon";
+import { stringWidth } from "../helpers/text.helper";
 
 interface ListingDetailsScreenProps {
   route: any;
@@ -13,13 +26,14 @@ export const ListingDetailsScreen = ({
   route,
   navigation,
 }: ListingDetailsScreenProps) => {
-  const { image, category } = route.params.house as House;
+  const { image, category, title, price, bathroom, bedroom, car } = route.params
+    .house as House;
 
   return (
-    <Flex height="100%">
+    <Flex height="100%" bg="white">
       <Box>
         <AspectRatio ratio={7 / 6}>
-          <Image source={{ uri: image }} />
+          <Image source={{ uri: image }} alt={`${title}`} />
         </AspectRatio>
 
         <Flex
@@ -43,6 +57,52 @@ export const ListingDetailsScreen = ({
           </Box>
         </Flex>
       </Box>
+
+      <ScrollView flexGrow={1}>
+        <VStack px={5} py={8} space={2}>
+          <Flex flexDirection="row" justifyContent="space-between">
+            <Heading fontSize="2xl">
+              {stringWidth({ value: title, maxShownLength: 26 })}
+            </Heading>
+            <Text fontSize="xl" color="rose.500" bold>
+              {formatPrice(price)}
+            </Text>
+          </Flex>
+
+          <HStack mt={5} bg="indigo.50" rounded="2xl" p={2}>
+            <VStack flex={1} alignItems="center">
+              <Text fontSize="md">Bedroom</Text>
+              <HStack space={2} alignItems="center">
+                <Text fontSize="lg" bold>
+                  {bedroom}
+                </Text>
+              </HStack>
+            </VStack>
+
+            <Divider orientation="vertical" mx={3} />
+
+            <VStack flex={1} alignItems="center">
+              <Text fontSize="md">Bathroom</Text>
+              <HStack space={2} alignItems="center">
+                <Text fontSize="lg" bold>
+                  {bathroom}
+                </Text>
+              </HStack>
+            </VStack>
+
+            <Divider orientation="vertical" mx={3} />
+
+            <VStack flex={1} alignItems="center">
+              <Text fontSize="md">Carpark</Text>
+              <HStack space={2} alignItems="center">
+                <Text fontSize="lg" bold>
+                  {car}
+                </Text>
+              </HStack>
+            </VStack>
+          </HStack>
+        </VStack>
+      </ScrollView>
     </Flex>
   );
 };
