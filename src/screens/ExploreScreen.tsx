@@ -18,6 +18,7 @@ export const ExploreScreen = ({ navigation }: any) => {
 
   return (
     <Box h="100%">
+      {/* NativeBase's Vertical Stacks */}
       <VStack p={5} space={4}>
         <Input
           p={3}

@@ -10,8 +10,8 @@ import {
   Input,
 } from "native-base";
 
+import { AppLogo } from "../components/AppLogo";
 import { useSignIn } from "../services/user.service";
-import { AppIcon } from "../components/AppIcon";
 
 export const SignInScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
@@ -26,14 +26,7 @@ export const SignInScreen = ({ navigation }: any) => {
 
   return (
     <Box h="100%" p={5} justifyContent="center">
-      {/* NativeBase's Vertical Stacks */}
-      <VStack space={2} mb={20} alignSelf="center">
-        <AppIcon />
-
-        <Heading size="3xl" mr={2} color="rose.600">
-          Secret Estate
-        </Heading>
-      </VStack>
+      <AppLogo />
 
       <VStack space={2} mb={10}>
         <Heading size="xl">Sign In</Heading>

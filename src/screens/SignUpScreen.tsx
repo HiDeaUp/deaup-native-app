@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, VStack, Heading, Text, Button, Input } from "native-base";
 
+import { AppLogo } from "../components/AppLogo";
 import { useSignUp } from "../services/user.service";
-import { AppIcon } from "../components/AppIcon";
 
 export const SignUpScreen = () => {
   const [email, setEmail] = useState("");
@@ -17,14 +17,7 @@ export const SignUpScreen = () => {
 
   return (
     <Box h="100%" p={5} justifyContent="center">
-      {/* NativeBase's Vertical Stacks */}
-      <VStack space={2} mb={20} alignSelf="center">
-        <AppIcon />
-
-        <Heading size="3xl" mr={2} color="rose.600">
-          Secret Estate
-        </Heading>
-      </VStack>
+      <AppLogo />
 
       <VStack space={2} mb={10}>
         <Heading size="xl">Sign Up</Heading>
