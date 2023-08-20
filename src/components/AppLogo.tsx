@@ -9,11 +9,11 @@ interface AppLogoProps {
 export const AppLogo = ({ name }: AppLogoProps) => {
   return (
     <VStack space={2} mb={20} alignSelf="center">
-    <AppIcon />
+      <AppIcon />
 
-    <Heading size="3xl" mr={2} color="rose.600">
-      {name}
-    </Heading>
-  </VStack>
+      <Heading size="3xl" mr={2} color="rose.600">
+        {name}
+      </Heading>
+    </VStack>
   );
 };

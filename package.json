@@ -8,8 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "prettier:check": "prettier --ignore-path .prettierignore --check '**/*.{js,jsx,json,md}'",
-    "prettier:fix": "prettier --ignore-path .prettierignore --write '**/*.{js,jsx,json,md}'"
+    "prettier:check": "prettier --ignore-path .prettierignore --check '**/*.{js,jsx,ts,tsx,json,md}'",
+    "prettier:fix": "prettier --ignore-path .prettierignore --write '**/*.{js,jsx,ts,tsx,json,md}'"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.8",

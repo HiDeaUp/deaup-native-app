@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Pressable,
-  Image,
-  AspectRatio,
-  Flex,
-  VStack,
-  HStack,
-  Text,
-  Heading,
-  Icon,
-} from "native-base";
+import { Box, Pressable, Image, AspectRatio, Flex, VStack, HStack, Text, Heading, Icon } from "native-base";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 import { House } from "../types/house.type";
@@ -30,15 +19,7 @@ export const ListingCard = ({ item, onPress }: ListingCardProps) => {
           <Image source={{ uri: item?.image }} alt={`${item?.title}`} />
         </AspectRatio>
 
-        <Box
-          rounded="2xl"
-          bg="rose.600:alpha.70"
-          px={3}
-          py={1}
-          position="absolute"
-          top={2}
-          right={2}
-        >
+        <Box rounded="2xl" bg="rose.600:alpha.70" px={3} py={1} position="absolute" top={2} right={2}>
           <Text fontSize="sm" color="white">
             {item.category}
           </Text>

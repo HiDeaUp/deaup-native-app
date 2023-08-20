@@ -10,9 +10,7 @@ api.interceptors.response.use(
   (error) => {
     error.message =
       error.response?.data?.error ||
-      (error.response?.data?.errors
-        ? JSON.stringify(error.response?.data?.errors)
-        : error.message);
+      (error.response?.data?.errors ? JSON.stringify(error.response?.data?.errors) : error.message);
 
     return Promise.reject(error);
   }

@@ -25,9 +25,7 @@ const HomeTabs = () => {
         component={ExploreScreen}
         options={{
           headerTitle: "Explore the World 🌎",
-          tabBarIcon: (props) => (
-            <Icon as={AntDesign} name="search1" {...props} />
-          ),
+          tabBarIcon: (props) => <Icon as={AntDesign} name="search1" {...props} />,
         }}
       />
       <Tab.Screen
@@ -56,29 +54,13 @@ export const AppNavigation = (): React.ReactElement => {
     <NavigationContainer>
       {user ? (
         <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={HomeTabs}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Details"
-            component={ListingDetailsScreen}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
+          <Stack.Screen name="Details" component={ListingDetailsScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
-          <Stack.Screen
-            name="SignIn"
-            component={SignInScreen}
-            options={{ headerTitle: "Sign In" }}
-          />
-          <Stack.Screen
-            name="SignUp"
-            component={SignUpScreen}
-            options={{ headerTitle: "Sign Up Today" }}
-          />
+          <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerTitle: "Sign In" }} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerTitle: "Sign Up Today" }} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

@@ -25,25 +25,13 @@ export const SignUpScreen = () => {
           Email
         </Text>
 
-        <Input
-          type="text"
-          p={4}
-          autoCapitalize="none"
-          value={email}
-          onChangeText={setEmail}
-        />
+        <Input type="text" p={4} autoCapitalize="none" value={email} onChangeText={setEmail} />
 
         <Text fontSize="lg" mt={5} bold>
           Password
         </Text>
 
-        <Input
-          type="password"
-          p={4}
-          value={password}
-          onChangeText={setPassword}
-          autoCapitalize="none"
-        />
+        <Input type="password" p={4} value={password} onChangeText={setPassword} autoCapitalize="none" />
       </VStack>
 
       <Button

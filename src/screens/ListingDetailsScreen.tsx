@@ -11,7 +11,7 @@ import {
   Heading,
   Divider,
   Button,
-  Icon
+  Icon,
 } from "native-base";
 import { Entypo } from "@expo/vector-icons";
 
@@ -25,12 +25,8 @@ interface ListingDetailsScreenProps {
   navigation: any;
 }
 
-export const ListingDetailsScreen = ({
-  route,
-  navigation,
-}: ListingDetailsScreenProps) => {
-  const { image, category, title, price, bathroom, bedroom, car, address, description } = route.params
-    .details as House;
+export const ListingDetailsScreen = ({ route, navigation }: ListingDetailsScreenProps) => {
+  const { image, category, title, price, bathroom, bedroom, car, address, description } = route.params.details as House;
 
   return (
     <Flex height="100%" bg="white">
@@ -64,9 +60,7 @@ export const ListingDetailsScreen = ({
       <ScrollView flexGrow={1}>
         <VStack px={5} py={8} space={2}>
           <Flex flexDirection="row" justifyContent="space-between">
-            <Heading fontSize="2xl">
-              {stringWidth({ value: title, maxShownLength: 26 })}
-            </Heading>
+            <Heading fontSize="2xl">{stringWidth({ value: title, maxShownLength: 26 })}</Heading>
             <Text fontSize="xl" color="rose.500" bold>
               {formatPrice(price)}
             </Text>
@@ -110,7 +104,9 @@ export const ListingDetailsScreen = ({
           </Heading>
           <HStack alignItems="center" space={2}>
             <Icon as={Entypo} name="address" color="black" size={5} />
-            <Text fontSize="md" color="light.600">{address}</Text>
+            <Text fontSize="md" color="light.600">
+              {address}
+            </Text>
           </HStack>
 
           <Heading fontSize="lg" mt={10}>
@@ -127,5 +123,5 @@ export const ListingDetailsScreen = ({
         Get It Touch
       </Button>
     </Flex>
-);
+  );
 };
