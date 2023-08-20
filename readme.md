@@ -8,8 +8,14 @@ React Native app, built with TypeScript 5 and Yarn 3 (berry). This mobile app co
 * 1. [Install Volta](https://docs.volta.sh/guide/getting-started/) to make sure the correct NodeJS and Yarn version are installed for this project.
 * Make sure your yarn version is correct (needs to be v3). If you are still running yarn v1, please run `yarn set version berry` to make sure you use the Yarn Berry v3 (and not Yarn v1).
 
+
 ### Run
 
 `yarn start` or `npx expo start`
 
 You can also run `yarn ios` or `yarn android` to run the app directly on the respective device.
+
+
+## THe Cook
+
+**[Pierre-Henry Soria](https://ph7.me)**. A super passionate and mission-driven software engineer! 😊 I'm also a true cheese 🧀, dark chocolate, and espresso lover! 😋
