@@ -1,10 +1,5 @@
 import { useToast } from "native-base";
-import {
-  QueryClient,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "react-query";
+import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query";
 import * as SecureStore from "expo-secure-store";
 
 import { api } from "../helpers/api.helper";
@@ -40,9 +35,7 @@ export const useSignUp = () => {
         await _persistTokenValue(queryClient, token);
 
         toast.show({
-          title: data
-            ? UserFormMessage.SUCCESS_SIGN_UP_MSG
-            : UserFormMessage.ERROR_MSG,
+          title: data ? UserFormMessage.SUCCESS_SIGN_UP_MSG : UserFormMessage.ERROR_MSG,
         });
       },
       onError: ({ message }) => {
@@ -71,9 +64,7 @@ export const useSignIn = () => {
         await _persistTokenValue(queryClient, token);
 
         toast.show({
-          title: data
-            ? UserFormMessage.SUCCESS_SIGN_IN_MSG
-            : UserFormMessage.ERROR_MSG,
+          title: data ? UserFormMessage.SUCCESS_SIGN_IN_MSG : UserFormMessage.ERROR_MSG,
         });
       },
       onError: ({ message }) => {
@@ -99,9 +90,7 @@ export const useSignOut = () => {
         await _persistTokenValue(queryClient, "");
 
         toast.show({
-          title: data
-            ? UserFormMessage.SUCCESS_SIGN_OUT_MSG
-            : UserFormMessage.ERROR_MSG,
+          title: data ? UserFormMessage.SUCCESS_SIGN_OUT_MSG : UserFormMessage.ERROR_MSG,
         });
       },
       onError: ({ message }) => {
@@ -119,24 +108,17 @@ export const useFetchUser = (): UserQuery => {
     data: user,
     isLoading,
     isFetching,
-  } = useQuery(
-    [FETCH_USER_QUERY_KEY, token],
-    () => api.post("/users/sign_in.json", null, { headers }),
-    {
-      enabled: !!token, // cast to boolean
-      staleTime: Infinity,
-      cacheTime: Infinity,
-      select: (userData: any) => userData?.data, // retrieve the data from the API
-    }
-  );
+  } = useQuery([FETCH_USER_QUERY_KEY, token], () => api.post("/users/sign_in.json", null, { headers }), {
+    enabled: !!token, // cast to boolean
+    staleTime: Infinity,
+    cacheTime: Infinity,
+    select: (userData: any) => userData?.data, // retrieve the data from the API
+  });
 
   return { user, isLoading, isFetching } as UserQuery;
 };
 
-const _persistTokenValue = async (
-  queryClient: QueryClient,
-  value: string
-): Promise<void> => {
+const _persistTokenValue = async (queryClient: QueryClient, value: string): Promise<void> => {
   await SecureStore.setItemAsync(TOKEN_QUERY_KEY, value);
 
   // invalidate the following token queries

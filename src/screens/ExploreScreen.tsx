@@ -4,7 +4,7 @@ import { useQueryClient } from "react-query";
 import { AntDesign } from "@expo/vector-icons";
 import { ListRenderItemInfo } from "react-native";
 
-import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house";
+import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house.service";
 import { ListingCard } from "../components/ListingCard";
 import { House } from "../types/house.type";
 
@@ -26,15 +26,7 @@ export const ExploreScreen = ({ navigation }: any) => {
           onChangeText={setSearch}
           size="xl"
           placeholder="Search"
-          InputLeftElement={
-            <Icon
-              as={AntDesign}
-              name="search1"
-              size={4}
-              color="gray.500"
-              ml={3}
-            />
-          }
+          InputLeftElement={<Icon as={AntDesign} name="search1" size={4} color="gray.500" ml={3} />}
         />
         <Select
           p={3}
@@ -56,13 +48,8 @@ export const ExploreScreen = ({ navigation }: any) => {
         px={5}
         flexGrow={1}
         // below, show item to the ListingCard image component
-        renderItem={({
-          item,
-        }: ListRenderItemInfo<House>): React.JSX.Element => (
-          <ListingCard
-            item={item}
-            onPress={() => navigation.navigate("Details", { details: item })}
-          />
+        renderItem={({ item }: ListRenderItemInfo<House>): React.JSX.Element => (
+          <ListingCard item={item} onPress={() => navigation.navigate("Details", { details: item })} />
         )}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_HOUSES_QUERY_KEY])}

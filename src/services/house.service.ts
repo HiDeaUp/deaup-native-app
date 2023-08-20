@@ -7,10 +7,7 @@ import { HouseQuery, HouseSearch } from "../types/house.type";
 
 export const FETCH_HOUSES_QUERY_KEY = "fetchHouses";
 
-export const useFetchHouses = ({
-  search,
-  category,
-}: HouseSearch): HouseQuery => {
+export const useFetchHouses = ({ search, category }: HouseSearch): HouseQuery => {
   const token = useToken();
 
   const {
