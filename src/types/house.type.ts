@@ -13,3 +13,14 @@ export interface House {
   created_at: string;
   updated_at: string;
 }
+
+export interface HouseSearch {
+  search: string;
+  category: string;
+}
+
+export interface HouseQuery {
+  house: ArrayLike<House>;
+  isLoading: boolean;
+  isFetching: boolean;
+}

@@ -14,7 +14,7 @@ export const ExploreScreen = ({ navigation }: any) => {
   const [category, setCategory] = useState("");
   const [search, setSearch] = useState("");
 
-  const { data, isLoading, isFetching } = useFetchHouses({ search, category });
+  const { house, isLoading, isFetching } = useFetchHouses({ search, category });
 
   return (
     <Box h="100%">
@@ -51,7 +51,7 @@ export const ExploreScreen = ({ navigation }: any) => {
         </Select>
       </VStack>
       <FlatList
-        data={data}
+        data={house}
         keyExtractor={(item: House): any => item.id}
         px={5}
         flexGrow={1}

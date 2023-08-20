@@ -3,18 +3,21 @@ import { useQuery } from "react-query";
 import { api } from "../helpers/api.helper";
 
 import { useToken } from "../hooks/token.hook";
-
-interface HouseQuery {
-  search: string;
-  category: string;
-}
+import { HouseQuery, HouseSearch } from "../types/house.type";
 
 export const FETCH_HOUSES_QUERY_KEY = "fetchHouses";
 
-export const useFetchHouses = ({ search, category }: HouseQuery) => {
+export const useFetchHouses = ({
+  search,
+  category,
+}: HouseSearch): HouseQuery => {
   const token = useToken();
 
-  return useQuery(
+  const {
+    data: house,
+    isLoading,
+    isFetching,
+  } = useQuery(
     [FETCH_HOUSES_QUERY_KEY, token, search, category],
     () =>
       api.get(`/houses.json`, {
@@ -25,4 +28,10 @@ export const useFetchHouses = ({ search, category }: HouseQuery) => {
       select: (houseData) => houseData?.data,
     }
   );
+
+  return {
+    house,
+    isLoading,
+    isFetching,
+  };
 };

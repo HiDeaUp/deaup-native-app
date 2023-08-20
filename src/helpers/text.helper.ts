@@ -18,3 +18,6 @@ export const stringWidth = ({
     ? value.substring(0, maxLength - trimMarker.length) + trimMarker
     : value;
 };
+
+export const initial = (value: string): string =>
+  value.slice(0, 2).toUpperCase();

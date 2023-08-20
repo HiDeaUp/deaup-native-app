@@ -5,10 +5,10 @@ import {
   useQuery,
   useQueryClient,
 } from "react-query";
+import * as SecureStore from "expo-secure-store";
 
 import { api } from "../helpers/api.helper";
-import { SignUpUser, SignInUser } from "../types/user.type";
-import * as SecureStore from "expo-secure-store";
+import { SignUpUser, SignInUser, User, UserQuery } from "../types/user.type";
 
 import { useToken, TOKEN_QUERY_KEY } from "../hooks/token.hook";
 
@@ -111,11 +111,15 @@ export const useSignOut = () => {
   );
 };
 
-export const useFetchUser = () => {
+export const useFetchUser = (): UserQuery => {
   const token = useToken();
   const headers = { authorization: token };
 
-  return useQuery(
+  const {
+    data: user,
+    isLoading,
+    isFetching,
+  } = useQuery(
     [FETCH_USER_QUERY_KEY, token],
     () => api.post("/users/sign_in.json", null, { headers }),
     {
@@ -125,6 +129,8 @@ export const useFetchUser = () => {
       select: (userData: any) => userData?.data, // retrieve the data from the API
     }
   );
+
+  return { user, isLoading, isFetching } as UserQuery;
 };
 
 const _persistTokenValue = async (

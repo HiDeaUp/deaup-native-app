@@ -2,17 +2,17 @@ import React from "react";
 import { Box, Heading, Button, Avatar } from "native-base";
 
 import { useFetchUser, useSignOut } from "../services/user.service";
+import { initial } from "../helpers/text.helper";
 
 export const ProfileScreen = () => {
-  const { data } = useFetchUser();
   const signOutMutation = useSignOut();
+  const onSignOut = async () => signOutMutation.mutate();
 
-  const onSignOut = async () => {
-    signOutMutation.mutate();
-  };
+  const {
+    user: { email },
+  } = useFetchUser();
 
-  const { email } = data;
-  const emailInitial = email.slice(0, 2).toUpperCase();
+  const emailInitial = initial(email);
 
   return (
     <Box h="100%" p={5}>

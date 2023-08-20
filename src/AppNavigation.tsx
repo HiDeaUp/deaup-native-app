@@ -50,7 +50,7 @@ const HomeTabs = () => {
 };
 
 export const AppNavigation = (): React.ReactElement => {
-  const { data: user } = useFetchUser();
+  const { user } = useFetchUser();
 
   return (
     <NavigationContainer>
