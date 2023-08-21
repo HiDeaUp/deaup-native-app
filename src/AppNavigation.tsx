@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, FontAwesome5 } from "@expo/vector-icons";
 import { Icon } from "native-base";
 
 import { SignInScreen } from "./screens/SignInScreen";
@@ -25,7 +25,7 @@ const HomeTabs = () => {
         component={ExploreScreen}
         options={{
           headerTitle: "Explore the World 🌎",
-          tabBarIcon: (props) => <Icon as={AntDesign} name="search1" {...props} />,
+          tabBarIcon: (props) => <Icon as={FontAwesome5} name="wpexplorer" {...props} />,
         }}
       />
       <Tab.Screen
