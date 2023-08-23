@@ -118,6 +118,7 @@ export const useFetchUser = (): UserQuery => {
   return { user, isLoading, isFetching } as UserQuery;
 };
 
+/** private functions **/
 const _persistTokenValue = async (queryClient: QueryClient, value: string): Promise<void> => {
   await SecureStore.setItemAsync(TOKEN_QUERY_KEY, value);
 
