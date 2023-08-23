@@ -11,6 +11,7 @@ import { ProfileScreen } from "./screens/ProfileScreen";
 import { ListingScreen } from "./screens/ListingScreen";
 import { ExploreScreen } from "./screens/ExploreScreen";
 import { ListingDetailsScreen } from "./screens/ListingDetailsScreen";
+import { ListingFormScreen } from "./screens/ListingFormScreen";
 
 import { useFetchUser } from "./services/user.service";
 
@@ -56,6 +57,7 @@ export const AppNavigation = (): React.ReactElement => {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
           <Stack.Screen name="Details" component={ListingDetailsScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Listing Form" component={ListingFormScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>

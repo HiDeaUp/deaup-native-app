@@ -29,7 +29,7 @@ export const ListingDetailsScreen = ({ route, navigation }: ListingDetailsScreen
   const { image, category, title, price, bathroom, bedroom, car, address, description } = route.params.details as House;
 
   return (
-    <Flex height="100%" bg="white">
+    <Flex height="100%">
       <Box>
         <AspectRatio ratio={7 / 6}>
           <Image source={{ uri: image }} alt={`${title}`} />

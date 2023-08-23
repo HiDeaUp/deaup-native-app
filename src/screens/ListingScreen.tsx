@@ -19,7 +19,7 @@ export const ListingScreen = ({ navigation }: any) => {
         p={5}
         flexGrow={1}
         renderItem={({ item }) => (
-          <ListingCard item={item} onPress={() => navigation.navigate("Details Form", { details: item })} />
+          <ListingCard item={item} onPress={() => navigation.navigate("Listing Form", { details: item })} />
         )}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_OWN_HOUSES_QUERY_KEY])}
