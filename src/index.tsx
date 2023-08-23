@@ -46,7 +46,8 @@ const theme = extendTheme({
         p: "3",
         borderWidth: 0,
         _focus: { borderWidth: 1, borderColor: "rose.400", bg: "white" },
-    }
+      },
+    },
   },
 });
 
