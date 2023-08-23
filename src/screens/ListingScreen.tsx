@@ -26,7 +26,7 @@ export const ListingScreen = ({ navigation }: any) => {
         ListEmptyComponent={
           <VStack alignItems="center" mt={50} space={2}>
             <Icon as={AntDesign} name="inbox" size={24} color="gray.400" />
-            <Text color="gray.400">No item to display</Text>
+            <Text color="gray.400">No items. Fancy to add one?</Text>
           </VStack>
         }
       />
