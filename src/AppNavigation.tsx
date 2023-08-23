@@ -14,7 +14,7 @@ import { ListingDetailsScreen } from "./screens/ListingDetailsScreen";
 import { ListingFormScreen } from "./screens/ListingFormScreen";
 
 import { useFetchUser } from "./services/user.service";
-import { ScreenName } from "./types/navigation.constant";
+import { ScreenName } from "./types/navigation.type";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

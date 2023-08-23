@@ -7,7 +7,7 @@ import { ListRenderItemInfo } from "react-native";
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house.service";
 import { ListingCard } from "../components/ListingCard";
 import { House } from "../types/house.type";
-import { ScreenName } from "../types/navigation.constant";
+import { ScreenName } from "../types/navigation.type";
 
 export const ExploreScreen = ({ navigation }: any) => {
   const queryClient = useQueryClient();

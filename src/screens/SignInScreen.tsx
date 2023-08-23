@@ -3,7 +3,7 @@ import { Box, VStack, HStack, Heading, Text, Button, Pressable, Input } from "na
 
 import { AppLogo } from "../components/AppLogo";
 import { useSignIn } from "../services/user.service";
-import { ScreenName } from "../types/navigation.constant";
+import { ScreenName } from "../types/navigation.type";
 
 export const SignInScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
