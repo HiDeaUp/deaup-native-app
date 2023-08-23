@@ -119,7 +119,7 @@ export const ListingDetailsScreen = ({ route, navigation }: ListingDetailsScreen
         </VStack>
       </ScrollView>
 
-      <Button m={5} _text={{ fontWeight: "bold", textTransform: "uppercase" }}>
+      <Button m={5} _text={{ textTransform: "uppercase" }}>
         Get It Touch
       </Button>
     </Flex>

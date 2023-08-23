@@ -7,6 +7,7 @@ import { ListRenderItemInfo } from "react-native";
 import { useFetchHouses, FETCH_HOUSES_QUERY_KEY } from "../services/house.service";
 import { ListingCard } from "../components/ListingCard";
 import { House } from "../types/house.type";
+import { ScreenName } from "../types/navigation.constant";
 
 export const ExploreScreen = ({ navigation }: any) => {
   const queryClient = useQueryClient();
@@ -49,7 +50,7 @@ export const ExploreScreen = ({ navigation }: any) => {
         flexGrow={1}
         // below, show item to the ListingCard image component
         renderItem={({ item }: ListRenderItemInfo<House>): React.JSX.Element => (
-          <ListingCard item={item} onPress={() => navigation.navigate("Details", { details: item })} />
+          <ListingCard item={item} onPress={() => navigation.navigate(ScreenName.DETAILS, { details: item })} />
         )}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_HOUSES_QUERY_KEY])}

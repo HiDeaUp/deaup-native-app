@@ -36,7 +36,7 @@ export const SignUpScreen = () => {
 
       <Button
         mt={5}
-        _text={{ fontWeight: "bold", textTransform: "uppercase" }}
+        _text={{ textTransform: "uppercase" }}
         onPress={onSignUp}
         isDisabled={!email || !password}
         isLoading={signUpMutation.isLoading}

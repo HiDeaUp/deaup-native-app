@@ -3,6 +3,7 @@ import { Box, VStack, HStack, Heading, Text, Button, Pressable, Input } from "na
 
 import { AppLogo } from "../components/AppLogo";
 import { useSignIn } from "../services/user.service";
+import { ScreenName } from "../types/navigation.constant";
 
 export const SignInScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ export const SignInScreen = ({ navigation }: any) => {
 
       <Button
         mt={5}
-        _text={{ fontWeight: "bold", textTransform: "uppercase" }}
+        _text={{ textTransform: "uppercase" }}
         onPress={onSignIn}
         isDisabled={!email || !password}
         isLoading={signInMutation.isLoading}
@@ -47,7 +48,7 @@ export const SignInScreen = ({ navigation }: any) => {
       <HStack justifyContent="center" mt={5}>
         <Text fontSize="lg">Don't have an account?</Text>
 
-        <Pressable ml={3} onPress={() => navigation.navigate("SignUp")}>
+        <Pressable ml={3} onPress={() => navigation.navigate(ScreenName.SIGN_UP)}>
           <Text color="rose.600" fontSize="lg" bold underline>
             Sign Up Today
           </Text>

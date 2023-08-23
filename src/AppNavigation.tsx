@@ -14,6 +14,7 @@ import { ListingDetailsScreen } from "./screens/ListingDetailsScreen";
 import { ListingFormScreen } from "./screens/ListingFormScreen";
 
 import { useFetchUser } from "./services/user.service";
+import { ScreenName } from "./types/navigation.constant";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,14 +56,18 @@ export const AppNavigation = (): React.ReactElement => {
     <NavigationContainer>
       {user ? (
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
-          <Stack.Screen name="Details" component={ListingDetailsScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Listing Form" component={ListingFormScreen} />
+          <Stack.Screen name={ScreenName.HOME} component={HomeTabs} options={{ headerShown: false }} />
+          <Stack.Screen
+            name={ScreenName.LISTING_DETAIL}
+            component={ListingDetailsScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name={ScreenName.LISTING_FORM} component={ListingFormScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
-          <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerTitle: "Sign In" }} />
-          <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerTitle: "Sign Up Today" }} />
+          <Stack.Screen name={ScreenName.SIGN_IN} component={SignInScreen} options={{ headerTitle: "Sign In" }} />
+          <Stack.Screen name={ScreenName.SIGN_UP} component={SignUpScreen} options={{ headerTitle: "Sign Up Today" }} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

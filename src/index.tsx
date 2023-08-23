@@ -9,6 +9,7 @@ const theme = extendTheme({
   components: {
     Button: {
       defaultProps: {
+        fontWeight: "bold",
         colorScheme: "rose",
         size: "lg",
         rounded: "3xl",
@@ -38,6 +39,14 @@ const theme = extendTheme({
         colorScheme: "rose.600",
       },
     },
+    TextArea: {
+      defaultProps: {
+        size: "bg",
+        bg: "white",
+        p: "3",
+        borderWidth: 0,
+        _focus: { borderWidth: 1, borderColor: "rose.400", bg: "white" },
+    }
   },
 });
 
