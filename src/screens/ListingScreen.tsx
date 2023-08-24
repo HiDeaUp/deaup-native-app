@@ -33,7 +33,7 @@ export const ListingScreen = ({ navigation }: any) => {
       />
 
       <Fab
-        colorScheme="rose"
+        colorScheme="rose.600:alpha.80"
         renderInPortal={false}
         shadow={2}
         icon={

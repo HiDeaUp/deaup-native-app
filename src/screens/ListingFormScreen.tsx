@@ -27,7 +27,7 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
         alignItems="center"
         safeArea
       >
-        <BackChevronIcon navigation={navigation} background="rose.600" />
+        <BackChevronIcon navigation={navigation} background="rose.500" />
       </Flex>
 
       <ScrollView flexGrow={1}>
