@@ -56,13 +56,17 @@ export const AppNavigation = (): React.ReactElement => {
     <NavigationContainer>
       {user ? (
         <Stack.Navigator>
-          <Stack.Screen name={ScreenName.HOME} component={HomeTabs} options={{ headerShown: false }} />
+          <Stack.Screen name={ScreenName.HOME} component={HomeTabs} options={{ headerShown: false, title: "Home" }} />
           <Stack.Screen
             name={ScreenName.LISTING_DETAIL}
             component={ListingDetailsScreen}
-            options={{ headerShown: false }}
+            options={{ headerShown: false, title: "Listing Details" }}
           />
-          <Stack.Screen name={ScreenName.LISTING_FORM} component={ListingFormScreen} />
+          <Stack.Screen
+            name={ScreenName.LISTING_FORM}
+            component={ListingFormScreen}
+            options={{ headerShown: false, title: "Listing Form" }}
+          />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>

@@ -50,7 +50,7 @@ export const ExploreScreen = ({ navigation }: any) => {
         flexGrow={1}
         // below, show item to the ListingCard image component
         renderItem={({ item }: ListRenderItemInfo<House>): React.JSX.Element => (
-          <ListingCard item={item} onPress={() => navigation.navigate(ScreenName.DETAILS, { details: item })} />
+          <ListingCard item={item} onPress={() => navigation.navigate(ScreenName.LISTING_DETAIL, { details: item })} />
         )}
         refreshing={isLoading || isFetching}
         onRefresh={() => queryClient.refetchQueries([FETCH_HOUSES_QUERY_KEY])}
