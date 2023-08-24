@@ -33,7 +33,6 @@ export const ListingFormScreen = ({ route }: ListingFormScreenProps) => {
             onChangeText={setDescription}
             autoCompleteType={true}
             rounded={5}
-            w="75%"
           />
         </VStack>
       </ScrollView>
