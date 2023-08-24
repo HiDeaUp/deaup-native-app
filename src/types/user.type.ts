@@ -1,9 +1,9 @@
-export interface SignInUser {
+export interface SignInUserPayload {
   email: string;
   password: string;
 }
 
-export type SignUpUser = SignInUser;
+export type SignUpUserPayload = SignInUserPayload;
 
 export interface User {
   id: string;

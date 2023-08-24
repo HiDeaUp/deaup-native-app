@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import { Box, VStack, HStack, Heading, Text, Button, Pressable, Input } from "native-base";
+import { Box, VStack, HStack, Heading, Text, Button, Pressable, Input, Icon } from "native-base";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import { AppLogo } from "../components/AppLogo";
 import { useSignIn } from "../services/user.service";
 import { ScreenName } from "../types/navigation.type";
+import { SignInUserPayload } from "../types/user.type";
 
 export const SignInScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false);
 
   const signInMutation = useSignIn();
 
   const onSignIn = () => {
-    const formData = { email, password };
+    const formData: SignInUserPayload = { email, password };
     signInMutation.mutate(formData);
   };
 
@@ -32,7 +35,26 @@ export const SignInScreen = ({ navigation }: any) => {
           Password
         </Text>
 
-        <Input type="password" p={4} value={password} onChangeText={setPassword} autoCapitalize="none" />
+        <Input
+          w={{
+            base: "75%",
+            md: "25%",
+          }}
+          p={4}
+          type={show ? "text" : "password"}
+          InputRightElement={
+            <Pressable onPress={() => setShow(!show)}>
+              <Icon
+                as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
+                size={5}
+                mr={2}
+                color="muted.400"
+              />
+            </Pressable>
+          }
+          onChangeText={setPassword}
+          autoCapitalize="none"
+        />
       </VStack>
 
       <Button

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { ScrollView, Box, Image, Flex, VStack, Input, Button, Text, Select, TextArea } from "native-base";
 
-import { House, HouseListingForm } from "../types/house.type";
+import { House, HouseListingForm, UpdateHousePayload } from "../types/house.type";
 import { BackChevronIcon } from "../components/BackChevronIcon";
+import { useMutation } from "react-query";
+import { useUpdateHouse } from "../services/house.service";
 
 interface ListingFormScreenProps {
   route: any;
@@ -22,6 +24,29 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
   const [bathroom, setBathroom] = useState(item?.bathroom?.toString());
   const [car, setCar] = useState(item?.car?.toString());
   const [image, setImage] = useState(item?.image);
+
+  const updateItemMutation = useUpdateHouse({
+    onSuccess: () => navigation.goBack(),
+  });
+
+  const onUpdate = () => {
+    const updatePayload: UpdateHousePayload = {
+      id: item.id,
+      house: {
+        title,
+        description,
+        category,
+        address,
+        price: parseInt(price),
+        bedroom: parseInt(bedroom),
+        bathroom: parseInt(bathroom),
+        car: parseInt(car),
+        image,
+      },
+    };
+
+    updateItemMutation.mutate(updatePayload);
+  };
 
   return (
     <Flex height="100%">
@@ -61,9 +86,9 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
             Category
           </Text>
           <Select
-            selectedValue={category}
             placeholder="Select a category"
             accessibilityLabel="Select a category"
+            selectedValue={category}
             onValueChange={setCategory}
           >
             <Select.Item label="Apartment" value="apartment" />
@@ -77,33 +102,33 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
           <Input value={address} onChangeText={setAddress} />
 
           <Text bold fontSize="md">
-            Image
+            Image link (URL)
           </Text>
           <Input value={image} onChangeText={setImage} />
 
           <Text bold fontSize="md">
             Price
           </Text>
-          <Input value={price} onChangeText={setPrice} />
+          <Input keyboardType="numeric" value={price} onChangeText={setPrice} />
 
           <Text bold fontSize="md">
             Bedroom
           </Text>
-          <Input value={bedroom} onChangeText={setBedroom} />
+          <Input keyboardType="numeric" value={bedroom} onChangeText={setBedroom} />
 
           <Text bold fontSize="md">
             Bathroom
           </Text>
-          <Input value={bathroom} onChangeText={setBathroom} />
+          <Input keyboardType="numeric" value={bathroom} onChangeText={setBathroom} />
 
           <Text bold fontSize="md">
             Cars
           </Text>
-          <Input value={car} onChangeText={setCar} />
+          <Input keyboardType="numeric" value={car} onChangeText={setCar} />
         </VStack>
       </ScrollView>
 
-      <Button m={5} _text={{ textTransform: "uppercase" }}>
+      <Button m={5} _text={{ textTransform: "uppercase" }} onPress={onUpdate} isLoading={updateItemMutation.isLoading}>
         {item ? "Update" : "Create"}
       </Button>
     </Flex>
