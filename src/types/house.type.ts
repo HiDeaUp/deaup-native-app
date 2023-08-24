@@ -24,3 +24,7 @@ export interface HouseQuery {
   isLoading: boolean;
   isFetching: boolean;
 }
+
+export enum HouseListingForm {
+  DEFAULT_CATEGORY = "category",
+}

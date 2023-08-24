@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ScrollView, Box, Image, Flex, VStack, Input, Button, Text, TextArea } from "native-base";
+import { ScrollView, Box, Image, Flex, VStack, Input, Button, Text, Select, TextArea } from "native-base";
 
-import { House } from "../types/house.type";
+import { House, HouseListingForm } from "../types/house.type";
 import { BackChevronIcon } from "../components/BackChevronIcon";
 
 interface ListingFormScreenProps {
@@ -14,6 +14,14 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
 
   const [title, setTitle] = useState(item?.title);
   const [description, setDescription] = useState(item?.description);
+
+  const [category, setCategory] = useState(item?.category) || HouseListingForm.DEFAULT_CATEGORY;
+  const [address, setAddress] = useState(item?.address);
+  const [price, setPrice] = useState(item?.price?.toString());
+  const [bedroom, setBedroom] = useState(item?.bedroom?.toString());
+  const [bathroom, setBathroom] = useState(item?.bathroom?.toString());
+  const [car, setCar] = useState(item?.car?.toString());
+  const [image, setImage] = useState(item?.image);
 
   return (
     <Flex height="100%">
@@ -35,7 +43,6 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
           <Text bold fontSize="md">
             Title
           </Text>
-
           <Input value={title} onChangeText={setTitle} />
 
           <Text mt={5} bold fontSize="md">
@@ -49,6 +56,50 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
             autoCompleteType={true}
             rounded={5}
           />
+
+          <Text bold fontSize="md">
+            Category
+          </Text>
+          <Select
+            selectedValue={category}
+            placeholder="Select a category"
+            accessibilityLabel="Select a category"
+            onValueChange={setCategory}
+          >
+            <Select.Item label="Apartment" value="apartment" />
+            <Select.Item label="Detached House" value="detached" />
+            <Select.Item label="Penthouse" value="penthouse" />
+          </Select>
+
+          <Text bold fontSize="md">
+            Address
+          </Text>
+          <Input value={address} onChangeText={setAddress} />
+
+          <Text bold fontSize="md">
+            Image
+          </Text>
+          <Input value={image} onChangeText={setImage} />
+
+          <Text bold fontSize="md">
+            Price
+          </Text>
+          <Input value={price} onChangeText={setPrice} />
+
+          <Text bold fontSize="md">
+            Bedroom
+          </Text>
+          <Input value={bedroom} onChangeText={setBedroom} />
+
+          <Text bold fontSize="md">
+            Bathroom
+          </Text>
+          <Input value={bathroom} onChangeText={setBathroom} />
+
+          <Text bold fontSize="md">
+            Cars
+          </Text>
+          <Input value={car} onChangeText={setCar} />
         </VStack>
       </ScrollView>
 
