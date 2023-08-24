@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { ScrollView, Flex, VStack, Input, Button, Text, TextArea } from "native-base";
+import { ScrollView, Box, Image, Flex, VStack, Input, Button, Text, TextArea } from "native-base";
 
 import { House } from "../types/house.type";
+import { BackChevronIcon } from "../components/BackChevronIcon";
 
 interface ListingFormScreenProps {
   route: any;
+  navigation: any;
 }
 
-export const ListingFormScreen = ({ route }: ListingFormScreenProps) => {
+export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps) => {
   const item = route.params?.details as House;
 
   const [title, setTitle] = useState(item?.title);
@@ -15,9 +17,22 @@ export const ListingFormScreen = ({ route }: ListingFormScreenProps) => {
 
   return (
     <Flex height="100%">
+      <Flex
+        px={5}
+        top={0}
+        left={0}
+        right={0}
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        safeArea
+      >
+        <BackChevronIcon navigation={navigation} background="rose.600" />
+      </Flex>
+
       <ScrollView flexGrow={1}>
         <VStack space={2} p={5}>
-          <Text mt={5} bold fontSize="md">
+          <Text bold fontSize="md">
             Title
           </Text>
 
