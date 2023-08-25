@@ -10,6 +10,14 @@ interface ListingFormScreenProps {
   navigation: any;
 }
 
+const FormFieldName = ({ label }: { label: string }) => {
+  return (
+    <Text mt={5} bold fontSize="md">
+      {label}
+    </Text>
+  );
+};
+
 export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps) => {
   const item = route.params?.details as House;
 
@@ -84,14 +92,10 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
 
       <ScrollView flexGrow={1}>
         <VStack space={2} p={5}>
-          <Text bold fontSize="md">
-            Title
-          </Text>
+          <FormFieldName label="Title" />
           <Input value={title} onChangeText={setTitle} />
 
-          <Text mt={5} bold fontSize="md">
-            Description
-          </Text>
+          <FormFieldName label="Description" />
           <TextArea
             h={20}
             placeholder="A beautiful house..."
@@ -101,9 +105,7 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
             rounded={5}
           />
 
-          <Text bold fontSize="md">
-            Category
-          </Text>
+          <FormFieldName label="Category" />
           <Select
             placeholder="Select a category"
             accessibilityLabel="Select a category"
@@ -115,34 +117,22 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
             <Select.Item label="Penthouse" value="penthouse" />
           </Select>
 
-          <Text bold fontSize="md">
-            Address
-          </Text>
+          <FormFieldName label="Address" />
           <Input value={address} onChangeText={setAddress} />
 
-          <Text bold fontSize="md">
-            Image link (URL)
-          </Text>
+          <FormFieldName label="Image link (URL)" />
           <Input value={image} onChangeText={setImage} />
 
-          <Text bold fontSize="md">
-            Price
-          </Text>
+          <FormFieldName label="Price" />
           <Input keyboardType="numeric" value={price} onChangeText={setPrice} />
 
-          <Text bold fontSize="md">
-            Bedroom
-          </Text>
+          <FormFieldName label="Bedroom" />
           <Input keyboardType="numeric" value={bedroom} onChangeText={setBedroom} />
 
-          <Text bold fontSize="md">
-            Bathroom
-          </Text>
+          <FormFieldName label="Bathroom" />
           <Input keyboardType="numeric" value={bathroom} onChangeText={setBathroom} />
 
-          <Text bold fontSize="md">
-            Cars
-          </Text>
+          <FormFieldName label="Cars" />
           <Input keyboardType="numeric" value={car} onChangeText={setCar} />
         </VStack>
       </ScrollView>
