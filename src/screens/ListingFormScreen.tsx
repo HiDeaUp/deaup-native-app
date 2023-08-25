@@ -32,11 +32,11 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
   const [car, setCar] = useState(item?.car?.toString());
   const [image, setImage] = useState(item?.image);
 
-  const updateItemMutation = useUpdateHouse({
+  const createItemMutation = useCreateHouse({
     onSuccess: () => navigation.goBack(),
   });
 
-  const createItemMutation = useCreateHouse({
+  const updateItemMutation = useUpdateHouse({
     onSuccess: () => navigation.goBack(),
   });
 
