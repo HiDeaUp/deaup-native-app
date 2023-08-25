@@ -10,7 +10,7 @@ interface ListingFormScreenProps {
   navigation: any;
 }
 
-const FormFieldName = ({ label }: { label: string }) => {
+const FormFieldName = ({ label }: { label: string }): React.JSX.Element => {
   return (
     <Text mt={5} bold fontSize="md">
       {label}
