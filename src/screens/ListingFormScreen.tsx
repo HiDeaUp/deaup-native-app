@@ -17,7 +17,7 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
   const [title, setTitle] = useState(item?.title);
   const [description, setDescription] = useState(item?.description);
 
-  const [category, setCategory] = useState(item?.category) || HouseListingForm.DEFAULT_CATEGORY;
+  const [category, setCategory] = useState(item?.category || HouseListingForm.DEFAULT_CATEGORY);
   const [address, setAddress] = useState(item?.address);
   const [price, setPrice] = useState(item?.price?.toString());
   const [bedroom, setBedroom] = useState(item?.bedroom?.toString());
