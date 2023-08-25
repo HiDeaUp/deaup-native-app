@@ -1,10 +1,10 @@
 import { FETCH_USER_QUERY_KEY, useSignOut } from "./user.service";
-import { useQuery, useMutation, useQueryClient, QueriesObserver } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useToast } from "native-base";
 import { api } from "../helpers/api.helper";
 
 import { useToken } from "../hooks/token.hook";
-import { HouseQuery, HouseSearch, UpdateHousePayload } from "../types/house.type";
+import { HouseQuery, HouseSearch, CreateHousePayload, UpdateHousePayload } from "../types/house.type";
 
 export const FETCH_HOUSES_QUERY_KEY = "fetchHouses";
 export const FETCH_OWN_HOUSES_QUERY_KEY = "fetchOwnHouses";
@@ -58,6 +58,33 @@ export const useFetchOwnHouses = (): HouseQuery => {
     isLoading,
     isFetching,
   };
+};
+
+export const useCreateHouse = (options: any) => {
+  const queryClient = useQueryClient();
+  const toast = useToast();
+  const token = useToken();
+
+  return useMutation(
+    (houseData: CreateHousePayload) =>
+      api.post(`/houses.json`, houseData, {
+        headers: { authorization: token },
+      }),
+    {
+      onSuccess: () => {
+        // invalid the fetch houses and fetch own houses queries
+        queryClient.invalidateQueries(FETCH_HOUSES_QUERY_KEY);
+        queryClient.invalidateQueries(FETCH_OWN_HOUSES_QUERY_KEY);
+
+        toast.show({ title: "Hoorah! Created! 🎉" });
+
+        options?.onSuccess();
+      },
+      onError: ({ message }) => {
+        toast.show({ title: message });
+      },
+    }
+  );
 };
 
 export const useUpdateHouse = (options: any) => {

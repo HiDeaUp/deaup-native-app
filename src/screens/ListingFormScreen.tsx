@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { ScrollView, Box, Image, Flex, VStack, Input, Button, Text, Select, TextArea } from "native-base";
+import { ScrollView, Flex, VStack, Input, Button, Text, Select, TextArea } from "native-base";
 
-import { House, HouseListingForm, UpdateHousePayload } from "../types/house.type";
+import { House, HouseListingForm, CreateHousePayload, UpdateHousePayload } from "../types/house.type";
 import { BackChevronIcon } from "../components/BackChevronIcon";
-import { useMutation } from "react-query";
-import { useUpdateHouse } from "../services/house.service";
+import { useCreateHouse, useUpdateHouse } from "../services/house.service";
 
 interface ListingFormScreenProps {
   route: any;
@@ -28,6 +27,26 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
   const updateItemMutation = useUpdateHouse({
     onSuccess: () => navigation.goBack(),
   });
+
+  const createItemMutation = useCreateHouse({
+    onSuccess: () => navigation.goBack(),
+  });
+
+  const onCreate = () => {
+    const createPayload: CreateHousePayload = {
+      title,
+      description,
+      category,
+      address,
+      price: parseInt(price),
+      bedroom: parseInt(bedroom),
+      bathroom: parseInt(bathroom),
+      car: parseInt(car),
+      image,
+    };
+
+    createItemMutation.mutate(createPayload);
+  };
 
   const onUpdate = () => {
     const updatePayload: UpdateHousePayload = {
@@ -128,7 +147,12 @@ export const ListingFormScreen = ({ route, navigation }: ListingFormScreenProps)
         </VStack>
       </ScrollView>
 
-      <Button m={5} _text={{ textTransform: "uppercase" }} onPress={onUpdate} isLoading={updateItemMutation.isLoading}>
+      <Button
+        m={5}
+        _text={{ textTransform: "uppercase" }}
+        onPress={item ? onUpdate : onCreate}
+        isLoading={updateItemMutation.isLoading}
+      >
         {item ? "Update" : "Create"}
       </Button>
     </Flex>

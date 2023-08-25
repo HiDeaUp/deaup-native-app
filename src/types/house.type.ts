@@ -14,6 +14,18 @@ export interface House {
   updated_at: string;
 }
 
+export interface CreateHousePayload {
+  title: string;
+  description: string;
+  category: string;
+  address: string;
+  image?: string;
+  price: number;
+  bedroom: number;
+  bathroom: number;
+  car: number;
+}
+
 export interface UpdateHousePayload {
   id: number;
   house: {
