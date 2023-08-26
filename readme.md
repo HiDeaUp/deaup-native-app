@@ -13,6 +13,11 @@ React Native app, built with TypeScript 5 and Yarn 3 (berry). This mobile app co
 
 You can also run `yarn ios` or `yarn android` to run the app directly on the respective device.
 
+### Cleanup Code
+
+1. Verify if the code syntax follows the Prettier rules `yarn prettier:check`
+2. To fix the indentation/code styling `yarn prettier:fix`
+
 ## THe Cook
 
 **[Pierre-Henry Soria](https://ph7.me)**. A super passionate and mission-driven software engineer! 😊 I'm also a true cheese 🧀, dark chocolate, and espresso lover! 😋
