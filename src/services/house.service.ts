@@ -1,4 +1,3 @@
-import { FETCH_USER_QUERY_KEY, useSignOut } from "./user.service";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useToast } from "native-base";
 import { api } from "../helpers/api.helper";
