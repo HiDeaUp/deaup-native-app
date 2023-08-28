@@ -9,7 +9,8 @@ React Native app, built with TypeScript 5 and Yarn 3 (berry). This mobile app co
 
 ### Run
 
-`yarn start` or `npx expo start`
+1. Update the details of your app in `.env` (first, rename `.env.dist` to `.env`)
+2. `yarn start` or `npx expo start`
 
 You can also run `yarn ios` or `yarn android` to run the app directly on the respective device.
 
