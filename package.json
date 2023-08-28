@@ -34,6 +34,7 @@
     "@types/react": "^18.2.20",
     "@types/react-test-renderer": "^18.0.0",
     "prettier": "^3.0.2",
+    "react-native-dotenv": "^3.4.9",
     "typescript": "^5.1.6"
   },
   "private": true,

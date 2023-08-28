@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, VStack, Heading, Text, Button, Pressable, Input, Icon } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
+import { APP_NAME } from "@env";
 
 import { AppLogo } from "../components/AppLogo";
 import { useSignUp } from "../services/user.service";
@@ -20,7 +21,7 @@ export const SignUpScreen = () => {
 
   return (
     <Box h="100%" p={5} justifyContent="center">
-      <AppLogo name="Secret Estate" />
+      <AppLogo name={`${APP_NAME}`} />
 
       <VStack space={2} mb={10}>
         <Heading size="xl">Sign Up</Heading>
