@@ -38,7 +38,7 @@ export const SignInScreen = ({ navigation }: any) => {
 
         <Input
           w={{
-            base: "75%",
+            base: "100%",
             md: "25%",
           }}
           p={4}
