@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_SERVER_URL } from "@env";
 
-export const baseURL = "http://127.0.0.1:3000";
+export const baseURL = API_SERVER_URL;
 
 // make API requests easily with Axios
 export const api = (() => axios.create({ baseURL }))();
