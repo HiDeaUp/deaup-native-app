@@ -6,7 +6,7 @@ const defaultBackground = "rose.600:alpha.60";
 
 interface BackChevronIconProps {
   navigation: any;
-  background: string;
+  background?: string;
 }
 
 export const BackChevronIcon = ({ navigation, background }: BackChevronIconProps) => {
