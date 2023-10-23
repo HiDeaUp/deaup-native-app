@@ -3,7 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, FontAwesome5 } from "@expo/vector-icons";
-import { Icon } from "native-base";
+import * as LocalAuthentication from "expo-local-authentication";
+import { Alert, Icon } from "native-base";
 
 import { SignInScreen } from "./screens/SignInScreen";
 import { SignUpScreen } from "./screens/SignUpScreen";
@@ -49,12 +50,40 @@ const HomeTabs = () => {
   );
 };
 
+const biometricAuthentication = (): boolean => {
+  try {
+    // Authenticate user
+    LocalAuthentication.isEnrolledAsync().then((isEnrolled) => {
+      if (isEnrolled) {
+        LocalAuthentication.authenticateAsync().then(({ success }) => {
+          if (success) {
+            // Biometric authentication successful, you can proceed
+            console.log("Authentication successful");
+
+            return true;
+          } else {
+            // Biometric authentication failed
+            console.log("Authentication failed");
+            Alert("Unable to authenticate your profile");
+
+            return false;
+          }
+        });
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  } finally {
+    return false;
+  }
+};
+
 export const AppNavigation = (): React.ReactElement => {
-  const { user } = useFetchUser();
+  let { user } = useFetchUser();
 
   return (
     <NavigationContainer>
-      {user ? (
+      {!user && biometricAuthentication() ? (
         <Stack.Navigator>
           <Stack.Screen name={ScreenName.HOME} component={HomeTabs} options={{ headerShown: false, title: "Home" }} />
           <Stack.Screen
