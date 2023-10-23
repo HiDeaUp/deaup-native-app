@@ -18,7 +18,7 @@
     "axios": "^1.4.0",
     "expo": "~49.0.7",
     "expo-local-authentication": "^13.6.0",
-    "expo-secure-store": "^12.3.1",
+    "expo-secure-store": "^12.5.0",
     "expo-status-bar": "~1.6.0",
     "native-base": "^3.4.28",
     "react": "18.2.0",
