@@ -20,6 +20,10 @@ You can also run `yarn ios` or `yarn android` to run the app directly on the res
 1. Verify if the code syntax follows the Prettier rules `yarn prettier:check`
 2. To fix the indentation/code styling `yarn prettier:fix`
 
-## THe Cook
+## The Cook
 
 **[Pierre-Henry Soria](https://ph7.me)**. A super passionate and mission-driven software engineer! 😊 I'm also a true cheese 🧀, dark chocolate, and espresso lover! 😋
+
+## License
+
+Generously distributed under the [MIT license](https://opensource.org/license/mit/).
