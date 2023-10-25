@@ -26,7 +26,7 @@ You can also run `yarn ios` or `yarn android` to run the app directly on the res
 
 ## The Cook
 
-**[Pierre-Henry Soria](https://ph7.me)**. A super passionate and mission-driven software engineer! 😊 I'm also a true cheese 🧀, dark chocolate, and espresso lover! 😋 Feel free to reach me at *pierre {[AT]} pH7 {[D0T]} me*
+**[Pierre-Henry Soria](https://ph7.me)**. A super passionate and mission-driven software engineer! 😊 I'm also a true cheese 🧀, dark chocolate, and espresso lover! 😋 Feel free to reach me at: *pierre {[AT]} pH7 {[D0T]} me*
 
 
 ## License
