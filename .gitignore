@@ -35,7 +35,6 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-
 # Package manager - Yarn
 .pnp.*
 .yarn/*
