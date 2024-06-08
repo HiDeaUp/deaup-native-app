@@ -12,6 +12,7 @@
     "prettier:fix": "prettier --ignore-path .prettierignore --write '**/*.{js,jsx,ts,tsx,json,md}'"
   },
   "dependencies": {
+    "@expo/vector-icons": "^14.0.2",
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
