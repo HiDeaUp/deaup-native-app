@@ -2006,15 +2006,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/vector-icons@npm:^14.0.2":
-  version: 14.0.2
-  resolution: "@expo/vector-icons@npm:14.0.2"
-  dependencies:
-    prop-types: ^15.8.1
-  checksum: 49e27ff52eb138745313fa2c39863fb762230b0089b910d668d7f2c06b7e71a0249dc3a26bfc8725d07bdfaadab1dbcbce087b34dfc244b00a15fc02fe4866e2
-  languageName: node
-  linkType: hard
-
 "@expo/xcpretty@npm:^4.2.1":
   version: 4.2.2
   resolution: "@expo/xcpretty@npm:4.2.2"
@@ -6142,7 +6133,7 @@ __metadata:
   resolution: "frontend-client@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@expo/vector-icons": ^14.0.2
+    "@expo/vector-icons": ^13.0.0
     "@react-navigation/bottom-tabs": ^6.5.8
     "@react-navigation/native": ^6.1.7
     "@react-navigation/native-stack": ^6.9.13
@@ -9155,7 +9146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:*, prop-types@npm:^15.8.1":
+"prop-types@npm:*":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
